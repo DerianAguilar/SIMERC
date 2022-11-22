@@ -29,9 +29,23 @@ public class vistaLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         ventanaRegistrar = new javax.swing.JPanel();
-        btnvolver = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jtDocumento = new javax.swing.JTextField();
+        jtNombre = new javax.swing.JTextField();
+        jtApellido = new javax.swing.JTextField();
+        jtCorreo = new javax.swing.JTextField();
+        jtContraseña = new javax.swing.JTextField();
+        pGuardar = new javax.swing.JPanel();
+        btnGuardar = new javax.swing.JLabel();
+        pCancelar = new javax.swing.JPanel();
+        btnCancelar = new javax.swing.JLabel();
+        ventanaInicioSesion = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -52,51 +66,129 @@ public class vistaLogin extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         ventanaRegistrar.setBackground(new java.awt.Color(255, 255, 255));
+        ventanaRegistrar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnvolver.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ryzen\\simercApp2\\src\\main\\java\\com\\mycompany\\simercapp2\\Imagen\\volver-flecha-izquierda_1.png")); // NOI18N
-        btnvolver.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnvolverMouseClicked(evt);
+        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("REGISTRAR");
+        ventanaRegistrar.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 52, 294, -1));
+
+        jLabel5.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Documento:");
+        ventanaRegistrar.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 144, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("Nombre:");
+        ventanaRegistrar.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 194, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setText("Apellido:");
+        ventanaRegistrar.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 247, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setText("Correo:");
+        ventanaRegistrar.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 298, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("Contraseña:");
+        ventanaRegistrar.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 348, -1, -1));
+        ventanaRegistrar.add(jtDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 140, 270, -1));
+        ventanaRegistrar.add(jtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 190, 270, -1));
+
+        jtApellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtApellidoActionPerformed(evt);
+            }
+        });
+        ventanaRegistrar.add(jtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 243, 270, -1));
+        ventanaRegistrar.add(jtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 294, 270, -1));
+        ventanaRegistrar.add(jtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 344, 270, -1));
+
+        pGuardar.setBackground(new java.awt.Color(0, 204, 0));
+
+        btnGuardar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnGuardar.setText("REGISTRAR");
+        btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGuardarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGuardarMouseExited(evt);
             }
         });
 
-        javax.swing.GroupLayout ventanaRegistrarLayout = new javax.swing.GroupLayout(ventanaRegistrar);
-        ventanaRegistrar.setLayout(ventanaRegistrarLayout);
-        ventanaRegistrarLayout.setHorizontalGroup(
-            ventanaRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ventanaRegistrarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnvolver, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(595, Short.MAX_VALUE))
+        javax.swing.GroupLayout pGuardarLayout = new javax.swing.GroupLayout(pGuardar);
+        pGuardar.setLayout(pGuardarLayout);
+        pGuardarLayout.setHorizontalGroup(
+            pGuardarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnGuardar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
         );
-        ventanaRegistrarLayout.setVerticalGroup(
-            ventanaRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ventanaRegistrarLayout.createSequentialGroup()
-                .addComponent(btnvolver, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 605, Short.MAX_VALUE))
+        pGuardarLayout.setVerticalGroup(
+            pGuardarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
         );
 
-        jPanel1.add(ventanaRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        ventanaRegistrar.add(pGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 560, 130, -1));
+
+        pCancelar.setBackground(new java.awt.Color(204, 0, 0));
+
+        btnCancelar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnCancelar.setText("CANCELAR");
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCancelarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCancelarMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pCancelarLayout = new javax.swing.GroupLayout(pCancelar);
+        pCancelar.setLayout(pCancelarLayout);
+        pCancelarLayout.setHorizontalGroup(
+            pCancelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+        );
+        pCancelarLayout.setVerticalGroup(
+            pCancelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+        );
+
+        ventanaRegistrar.add(pCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 560, -1, -1));
+
+        getContentPane().add(ventanaRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 650));
+
+        ventanaInicioSesion.setBackground(new java.awt.Color(255, 255, 255));
+        ventanaInicioSesion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(102, 0, 0));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, 440, 650));
+        ventanaInicioSesion.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, 440, 650));
 
         jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("CONTRASEÑA:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 150, -1));
+        ventanaInicioSesion.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 150, -1));
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 430, 10));
+        ventanaInicioSesion.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 430, 10));
 
         jLabel4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("USUARIO:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 150, -1));
+        ventanaInicioSesion.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 150, -1));
 
         jtUser.setForeground(new java.awt.Color(204, 204, 204));
         jtUser.setText("Ingrese el usuario");
@@ -106,10 +198,10 @@ public class vistaLogin extends javax.swing.JFrame {
                 jtUserMousePressed(evt);
             }
         });
-        jPanel1.add(jtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 430, -1));
+        ventanaInicioSesion.add(jtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 430, -1));
 
         jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 430, 10));
+        ventanaInicioSesion.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 430, 10));
 
         pIngresar.setBackground(new java.awt.Color(153, 0, 0));
 
@@ -138,7 +230,7 @@ public class vistaLogin extends javax.swing.JFrame {
             .addComponent(btnIngresar, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        jPanel1.add(pIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 130, 50));
+        ventanaInicioSesion.add(pIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 130, 50));
 
         pRegistrar.setBackground(new java.awt.Color(255, 255, 255));
         pRegistrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -171,13 +263,13 @@ public class vistaLogin extends javax.swing.JFrame {
             .addComponent(btnRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
         );
 
-        jPanel1.add(pRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 130, 50));
+        ventanaInicioSesion.add(pRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 130, 50));
 
         jLabel6.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("INICIO DE SESION");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 610, -1));
+        ventanaInicioSesion.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 610, -1));
 
         jtPass.setForeground(new java.awt.Color(204, 204, 204));
         jtPass.setText("**********");
@@ -187,7 +279,7 @@ public class vistaLogin extends javax.swing.JFrame {
                 jtPassMousePressed(evt);
             }
         });
-        jPanel1.add(jtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 430, -1));
+        ventanaInicioSesion.add(jtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 430, -1));
 
         pSalir.setBackground(new java.awt.Color(255, 255, 255));
         pSalir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -220,10 +312,9 @@ public class vistaLogin extends javax.swing.JFrame {
         pSalir.setLayout(pSalirLayout);
         pSalirLayout.setHorizontalGroup(
             pSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pSalirLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+            .addGroup(pSalirLayout.createSequentialGroup()
+                .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pSalirLayout.setVerticalGroup(
             pSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,9 +323,9 @@ public class vistaLogin extends javax.swing.JFrame {
                 .addGap(605, 605, 605))
         );
 
-        jPanel1.add(pSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
+        ventanaInicioSesion.add(pSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 650));
+        getContentPane().add(ventanaInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 650));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -306,9 +397,25 @@ public class vistaLogin extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnSalirMouseClicked
 
-    private void btnvolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvolverMouseClicked
-        ventanaRegistrar.setVisible(false);
-    }//GEN-LAST:event_btnvolverMouseClicked
+    private void jtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtApellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtApellidoActionPerformed
+
+    private void btnCancelarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarMouseEntered
+        pCancelar.setBackground(new Color (153,0,0));
+    }//GEN-LAST:event_btnCancelarMouseEntered
+
+    private void btnCancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarMouseExited
+        pCancelar.setBackground(new Color (204,0,0));
+    }//GEN-LAST:event_btnCancelarMouseExited
+
+    private void btnGuardarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseEntered
+        pGuardar.setBackground(new Color (0,153,0));
+    }//GEN-LAST:event_btnGuardarMouseEntered
+
+    private void btnGuardarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseExited
+        pGuardar.setBackground(new Color (0,204,0));
+    }//GEN-LAST:event_btnGuardarMouseExited
 
     /**
      * @param args the command line arguments
@@ -346,22 +453,36 @@ public class vistaLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JLabel btnCancelar;
+    public javax.swing.JLabel btnGuardar;
     public javax.swing.JLabel btnIngresar;
     public javax.swing.JLabel btnRegistrar;
     private javax.swing.JLabel btnSalir;
-    private javax.swing.JLabel btnvolver;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    public javax.swing.JTextField jtApellido;
+    public javax.swing.JTextField jtContraseña;
+    public javax.swing.JTextField jtCorreo;
+    public javax.swing.JTextField jtDocumento;
+    public javax.swing.JTextField jtNombre;
     public javax.swing.JPasswordField jtPass;
     public javax.swing.JTextField jtUser;
+    private javax.swing.JPanel pCancelar;
+    private javax.swing.JPanel pGuardar;
     private javax.swing.JPanel pIngresar;
     private javax.swing.JPanel pRegistrar;
     private javax.swing.JPanel pSalir;
+    public javax.swing.JPanel ventanaInicioSesion;
     public javax.swing.JPanel ventanaRegistrar;
     // End of variables declaration//GEN-END:variables
 
