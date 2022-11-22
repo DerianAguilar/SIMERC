@@ -5,6 +5,7 @@
  */
 package com.mycompany.simercapp2.Vista;
 
+import com.mycompany.simercapp2.Controlador.ControladorVistaLogin;
 import com.mycompany.simercapp2.Controlador.ControladorVistaPrincipal;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -196,7 +197,9 @@ public class vistaSeguimiento extends javax.swing.JFrame {
 				JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
         
         if(input == 0){
-            System.exit(0);
+            ControladorVistaLogin ctrLogin= new ControladorVistaLogin();
+            this.dispose();
+            ctrLogin.iniciar();
         }
     }//GEN-LAST:event_jLabel5MouseClicked
 

@@ -60,6 +60,7 @@ public class vistaLogin extends javax.swing.JFrame {
         jtPass = new javax.swing.JPasswordField();
         pSalir = new javax.swing.JPanel();
         btnSalir = new javax.swing.JLabel();
+        txtConIn = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -190,15 +191,15 @@ public class vistaLogin extends javax.swing.JFrame {
         jLabel4.setText("USUARIO:");
         ventanaInicioSesion.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 150, -1));
 
-        jtUser.setForeground(new java.awt.Color(204, 204, 204));
-        jtUser.setText("Ingrese el usuario");
+        jtUser.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jtUser.setForeground(new java.awt.Color(0, 0, 0));
         jtUser.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jtUser.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jtUserMousePressed(evt);
             }
         });
-        ventanaInicioSesion.add(jtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 430, -1));
+        ventanaInicioSesion.add(jtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 430, 20));
 
         jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
         ventanaInicioSesion.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 430, 10));
@@ -230,7 +231,7 @@ public class vistaLogin extends javax.swing.JFrame {
             .addComponent(btnIngresar, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        ventanaInicioSesion.add(pIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 130, 50));
+        ventanaInicioSesion.add(pIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 130, 50));
 
         pRegistrar.setBackground(new java.awt.Color(255, 255, 255));
         pRegistrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -256,14 +257,18 @@ public class vistaLogin extends javax.swing.JFrame {
         pRegistrar.setLayout(pRegistrarLayout);
         pRegistrarLayout.setHorizontalGroup(
             pRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pRegistrarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pRegistrarLayout.setVerticalGroup(
             pRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pRegistrarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        ventanaInicioSesion.add(pRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 130, 50));
+        ventanaInicioSesion.add(pRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 420, 130, 50));
 
         jLabel6.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
@@ -271,15 +276,15 @@ public class vistaLogin extends javax.swing.JFrame {
         jLabel6.setText("INICIO DE SESION");
         ventanaInicioSesion.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 610, -1));
 
-        jtPass.setForeground(new java.awt.Color(204, 204, 204));
-        jtPass.setText("**********");
+        jtPass.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jtPass.setForeground(new java.awt.Color(0, 0, 0));
         jtPass.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jtPass.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jtPassMousePressed(evt);
             }
         });
-        ventanaInicioSesion.add(jtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 430, -1));
+        ventanaInicioSesion.add(jtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 430, 20));
 
         pSalir.setBackground(new java.awt.Color(255, 255, 255));
         pSalir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -324,6 +329,11 @@ public class vistaLogin extends javax.swing.JFrame {
         );
 
         ventanaInicioSesion.add(pSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
+
+        txtConIn.setForeground(new java.awt.Color(204, 0, 0));
+        txtConIn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtConIn.setText("USUARIO O CONTRASEÑA INCORRECTA");
+        ventanaInicioSesion.add(txtConIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 430, 30));
 
         getContentPane().add(ventanaInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 650));
 
@@ -371,26 +381,12 @@ public class vistaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIngresarMouseExited
 
     private void jtUserMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtUserMousePressed
-        if (jtUser.getText().equals("Ingrese el usuario")) {
-            jtUser.setText("");
-            jtUser.setForeground(Color.black);
-        }
-        if(String.valueOf(jtPass.getPassword()).isEmpty()){
-            jtPass.setText("********");
-            jtPass.setForeground(Color.gray);
-        }
+        
 
     }//GEN-LAST:event_jtUserMousePressed
 
     private void jtPassMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtPassMousePressed
-        if (String.valueOf(jtPass.getPassword()).equals("**********")) {
-            jtPass.setText("");
-            jtPass.setForeground(Color.black);
-        }
-        if(jtUser.getText().isEmpty()){
-            jtPass.setText("Ingrese el usuario");
-            jtPass.setForeground(Color.gray);
-        }
+        
     }//GEN-LAST:event_jtPassMousePressed
 
     private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
@@ -482,6 +478,7 @@ public class vistaLogin extends javax.swing.JFrame {
     private javax.swing.JPanel pIngresar;
     private javax.swing.JPanel pRegistrar;
     private javax.swing.JPanel pSalir;
+    public javax.swing.JLabel txtConIn;
     public javax.swing.JPanel ventanaInicioSesion;
     public javax.swing.JPanel ventanaRegistrar;
     // End of variables declaration//GEN-END:variables

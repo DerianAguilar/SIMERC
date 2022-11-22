@@ -3,7 +3,6 @@ package com.mycompany.simercapp2.Dao;
 import com.mycompany.simercapp2.Modelo.Contacto;
 import com.mycompany.simercapp2.Modelo.RegContacto;
 import com.mycompany.simercapp2.Config.conexion;
-import com.mycompany.simercapp2.Modelo.Asesor;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
