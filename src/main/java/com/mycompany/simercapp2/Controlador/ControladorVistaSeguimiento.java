@@ -82,9 +82,11 @@ public class ControladorVistaSeguimiento implements ActionListener {
         modelo.addColumn("DIRECCION");
         modelo.addColumn("MODALIDAD");
         modelo.addColumn("ASESOR");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Apellido");
         vSeguimiento.tContacto.setModel(modelo);
         
-        Object[] object = new Object[12];
+        Object[] object = new Object[14];
         for (int i = 0; i < lista.size(); i++) {
             object[0] = lista.get(i).getId();
             object[1] = lista.get(i).getTipoDocumento();
@@ -98,6 +100,8 @@ public class ControladorVistaSeguimiento implements ActionListener {
             object[9] = lista.get(i).getDireccion();
             object[10] = lista.get(i).getModalidad();
             object[11] = lista.get(i).getAsesor();
+            object[12] = lista.get(i).getnAs();
+            object[13] = lista.get(i).getApAs();
             modelo.addRow(object);
         }
         vSeguimiento.tContacto.setModel(modelo);
@@ -129,9 +133,9 @@ public class ControladorVistaSeguimiento implements ActionListener {
             vSeguimiento.setVisible(false);
         }
 
-    }
+    
 
-    /*public void limpiarT() {
+    /*public void limpiarT(JTable tabla) {
         vSeguimiento.jtBuscar.setText(null);
         String buscar = vSeguimiento.jtBuscar.getText();
         DefaultTableModel modelo = new DefaultTableModel();
@@ -171,6 +175,6 @@ public class ControladorVistaSeguimiento implements ActionListener {
         
 
     }*/
+}
 
-    
 

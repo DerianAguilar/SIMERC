@@ -76,7 +76,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         btnNcontacto.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         btnNcontacto.setForeground(new java.awt.Color(255, 255, 255));
         btnNcontacto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnNcontacto.setText("Nuevo Contacto");
+        btnNcontacto.setText("NUEVO CONTACTO");
         btnNcontacto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnNcontacto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

@@ -3,6 +3,7 @@ package com.mycompany.simercapp2.Dao;
 import com.mycompany.simercapp2.Modelo.Contacto;
 import com.mycompany.simercapp2.Modelo.RegContacto;
 import com.mycompany.simercapp2.Config.conexion;
+import com.mycompany.simercapp2.Modelo.Asesor;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,6 +31,7 @@ public class seguimientoDao extends conexion {
             while (rs.next()) {
                 Contacto cot = new Contacto();
                 
+                
                 cot.setId(rs.getInt(1));
                 cot.setTipoDocumento(rs.getString(2));
                 cot.setDocumento(rs.getString(3));
@@ -42,7 +44,12 @@ public class seguimientoDao extends conexion {
                 cot.setDireccion(rs.getString(10));
                 cot.setModalidad(rs.getString(11));
                 cot.setAsesor(rs.getInt(12));
+                cot.setnAs(rs.getString(13));
+                cot.setApAs(rs.getString(14));
                 datos.add(cot);
+                
+                
+                
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);

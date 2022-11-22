@@ -14,7 +14,8 @@ public class Contacto {
     private String nacionalidad;
     private String modalidad;
     private int asesor;
-    private String buscar;
+    private String nAs;
+    private String apAs;
 
     public Contacto() {
     }
@@ -32,7 +33,8 @@ public class Contacto {
         this.nacionalidad = nacionalidad;
         this.modalidad = modalidad;
         this.asesor = asesor;
-        this.buscar = buscar;
+        this.nAs= nAs;
+        this.apAs = apAs;
     }
 
     public int getId() {
@@ -131,12 +133,22 @@ public class Contacto {
         this.asesor = asesor;
     }
 
-    public String getBuscar() {
-        return buscar;
+    public String getnAs() {
+        return nAs;
     }
 
-    public void setBuscar(String buscar) {
-        this.buscar = buscar;
+    public void setnAs(String nAs) {
+        this.nAs = nAs;
     }
+
+    public String getApAs() {
+        return apAs;
+    }
+
+    public void setApAs(String apAs) {
+        this.apAs = apAs;
+    }
+
+    
 
 }
