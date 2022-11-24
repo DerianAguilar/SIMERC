@@ -19,6 +19,7 @@ public class ControladorVistaEnCorreo implements ActionListener {
         this.vEnCorreo = new VistaEnCorreo();
         this.enCorreoDao = new EnCorreoDao();
         this.vEnCorreo.btnBuscar.addActionListener(this);
+        this.vEnCorreo.btnSiguiente.addActionListener(this);
     }
 
     public void iniciar(String idU) {
@@ -38,6 +39,12 @@ public class ControladorVistaEnCorreo implements ActionListener {
         if (e.getSource() == vEnCorreo.btnBuscar) {
             buscar(vEnCorreo.tablaCorreo);
         }
+        if(e.getSource()==vEnCorreo.btnSiguiente){
+            String idU= vEnCorreo.txtIdU.getText();
+            String idFila=vEnCorreo.txtidFila.getText();
+            siguiente();
+        }
+        
     }
 
     public void buscar(JTable tabla) {
@@ -68,5 +75,9 @@ public class ControladorVistaEnCorreo implements ActionListener {
         }
 
     }
+    public void siguiente(){
+        
+    }
+    
 
 }

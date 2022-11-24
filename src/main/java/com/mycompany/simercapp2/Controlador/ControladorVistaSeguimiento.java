@@ -29,7 +29,6 @@ public class ControladorVistaSeguimiento implements ActionListener {
         this.rCot = new RegContacto();
         this.vSeguimiento.btnBuscar.addActionListener(this);
         this.vSeguimiento.brnVer.addActionListener(this);
-        this.vSeguimiento.btnLimpiar.addActionListener(this);
         this.vSeguimiento.btnRegistrar.addActionListener(this);
         
     }
@@ -54,9 +53,7 @@ public class ControladorVistaSeguimiento implements ActionListener {
             
             ver(vSeguimiento.tHistorial);
         }
-        if (e.getSource() == vSeguimiento.btnLimpiar) {
-            
-        }
+        
         if (e.getSource() == vSeguimiento.btnRegistrar) {
             
             int id = Integer.parseInt(vSeguimiento.jtVer.getText());

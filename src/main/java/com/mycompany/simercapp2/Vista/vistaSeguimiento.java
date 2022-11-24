@@ -44,7 +44,6 @@ public class vistaSeguimiento extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tHistorial = new javax.swing.JTable();
         brnVer = new javax.swing.JButton();
-        btnLimpiar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tContacto = new javax.swing.JTable();
         jtVer = new javax.swing.JTextField();
@@ -131,18 +130,7 @@ public class vistaSeguimiento extends javax.swing.JFrame {
         brnVer.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         brnVer.setForeground(new java.awt.Color(255, 255, 255));
         brnVer.setText("VER");
-        jPanel2.add(brnVer, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 347, -1, -1));
-
-        btnLimpiar.setBackground(new java.awt.Color(204, 0, 0));
-        btnLimpiar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        btnLimpiar.setForeground(new java.awt.Color(255, 255, 255));
-        btnLimpiar.setText("LIMPIAR");
-        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(835, 347, -1, -1));
+        jPanel2.add(brnVer, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 350, -1, -1));
 
         tContacto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -152,16 +140,26 @@ public class vistaSeguimiento extends javax.swing.JFrame {
 
             }
         ));
+        tContacto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tContactoMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(tContacto);
 
         jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 82, 1439, 247));
-        jPanel2.add(jtVer, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 347, 138, -1));
+
+        jtVer.setBackground(new java.awt.Color(255, 255, 255));
+        jtVer.setForeground(new java.awt.Color(255, 255, 255));
+        jtVer.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jtVer.setEnabled(false);
+        jPanel2.add(jtVer, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 347, 50, -1));
 
         btnRegistrar.setBackground(new java.awt.Color(204, 0, 0));
         btnRegistrar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setText("REGISTRAR");
-        jPanel2.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(649, 347, 130, -1));
+        jPanel2.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 350, 130, -1));
 
         btnVolver.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ryzen\\simercApp2\\src\\main\\java\\com\\mycompany\\simercapp2\\Imagen\\volver-flecha-izquierda_1.png")); // NOI18N
         btnVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -217,14 +215,15 @@ public class vistaSeguimiento extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnBuscarKeyPressed
 
-    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-        vistaSeguimiento vSeguimiento= new vistaSeguimiento();
-        DefaultTableModel modelo = new DefaultTableModel();
-        for (int i = 0; i < vSeguimiento.tContacto.getRowCount(); i++) {
-            modelo.removeRow(i);
-            i-=1;
+    private void tContactoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tContactoMouseClicked
+        int fila=tContacto.getSelectedRow();
+        System.out.println(fila);
+        if(fila>=0){
+            String id=(String)tContacto.getValueAt(fila,0).toString();
+            jtVer.setText(id);
+            System.out.println(id);
         }
-    }//GEN-LAST:event_btnLimpiarActionPerformed
+    }//GEN-LAST:event_tContactoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -265,7 +264,6 @@ public class vistaSeguimiento extends javax.swing.JFrame {
     public javax.swing.JButton brnVer;
     public javax.swing.JButton btnBuscar;
     public javax.swing.JLabel btnInicio;
-    public javax.swing.JButton btnLimpiar;
     public javax.swing.JButton btnRegistrar;
     public javax.swing.JLabel btnVolver;
     private javax.swing.JLabel jLabel1;
