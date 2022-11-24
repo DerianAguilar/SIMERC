@@ -96,7 +96,7 @@ public class InicioRegistroDao extends conexion {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        String sql = "SELECT password FROM asesor WHERE password='" + pass + "'";
+        String sql = "SELECT nombre FROM asesor WHERE password='" + pass + "' AND rol= 'admin'";
 
         try {
             ps = con.prepareStatement(sql);
