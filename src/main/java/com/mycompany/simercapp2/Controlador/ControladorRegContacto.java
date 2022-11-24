@@ -17,6 +17,7 @@ public class ControladorRegContacto implements ActionListener{
     
     private RegContacto rCot;
     private int id;
+    private String idU;
     
     public ControladorRegContacto() {
         this.regCot = new RegContacto();
@@ -30,12 +31,14 @@ public class ControladorRegContacto implements ActionListener{
         
     }
     
-    public void iniciar(int id) {
+    public void iniciar(int id,String idU) {
         this.id=id;
+        this.idU=idU;
         vRegCot.setTitle("REGISTRAR SEGUIMIENTO");
         vRegCot.setLocationRelativeTo(null);
         mostrar();
         vRegCot.jtId.setText(String.valueOf(id));
+        vRegCot.txtIdU.setText(idU);
     }
     
     @Override

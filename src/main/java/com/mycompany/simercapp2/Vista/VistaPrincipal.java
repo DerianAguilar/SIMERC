@@ -42,6 +42,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         btnNcontacto = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         btnSeguimiento = new javax.swing.JLabel();
+        txtIdU = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -120,6 +121,16 @@ public class VistaPrincipal extends javax.swing.JFrame {
             .addComponent(btnSeguimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        txtIdU.setBackground(new java.awt.Color(255, 255, 255));
+        txtIdU.setForeground(new java.awt.Color(255, 255, 255));
+        txtIdU.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtIdU.setEnabled(false);
+        txtIdU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdUActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -136,17 +147,21 @@ public class VistaPrincipal extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(txtIdU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(64, 64, 64)
+                .addComponent(txtIdU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(126, 126, 126)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addContainerGap(191, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 1150, 600));
@@ -170,14 +185,17 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNcontactoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNcontactoMouseClicked
+        String idU=txtIdU.getText();
+        
         ControladorVistaNcontacto ctrlNcontacto = new ControladorVistaNcontacto();
-        ctrlNcontacto.iniciar();
+        ctrlNcontacto.iniciar(idU);
         this.dispose();
     }//GEN-LAST:event_btnNcontactoMouseClicked
 
     private void btnSeguimientoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSeguimientoMouseClicked
+        String idU=txtIdU.getText();
         ControladorVistaSeguimiento ctrlSeguimiento = new ControladorVistaSeguimiento();
-        ctrlSeguimiento.iniciar();
+        ctrlSeguimiento.iniciar(idU);
         this.dispose();
         
     }//GEN-LAST:event_btnSeguimientoMouseClicked
@@ -192,6 +210,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
             ctrLogin.iniciar();
         }
     }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void txtIdUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdUActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdUActionPerformed
 
     /**
      * @param args the command line arguments
@@ -239,5 +261,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    public javax.swing.JTextField txtIdU;
     // End of variables declaration//GEN-END:variables
 }

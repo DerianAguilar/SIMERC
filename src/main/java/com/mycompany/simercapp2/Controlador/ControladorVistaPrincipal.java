@@ -7,6 +7,7 @@ import com.mycompany.simercapp2.Vista.VistaPrincipal;
 public class ControladorVistaPrincipal {
    
     private VistaPrincipal vPrincipal;
+    private String id;
     //private ControladorVistaNcontacto ctrlVistaNcontacto;
 
     public ControladorVistaPrincipal() {
@@ -17,10 +18,13 @@ public class ControladorVistaPrincipal {
         
         
     }
-    public void iniciar(){
+    public void iniciar(String idU){
+        this.id=idU;
         vPrincipal.setTitle("Pag - Principal");
         vPrincipal.setLocationRelativeTo(null);
         vPrincipal.setVisible(true);
+        vPrincipal.txtIdU.setText(idU);
+        
     }
 
     /*@Override

@@ -20,7 +20,7 @@ public class Contacto {
     public Contacto() {
     }
 
-    public Contacto(int id, String tipoDocumento, String documento, String nombre, String apellido, String correo, String colegio, String direccion, String telefono, String nacionalidad, String modalidad, int asesor, String buscar) {
+    public Contacto(int id, String tipoDocumento, String documento, String nombre, String apellido, String correo, String colegio, String direccion, String telefono, String nacionalidad, String modalidad, int asesor, String nAs, String apAs) {
         this.id = id;
         this.tipoDocumento = tipoDocumento;
         this.documento = documento;
@@ -33,9 +33,11 @@ public class Contacto {
         this.nacionalidad = nacionalidad;
         this.modalidad = modalidad;
         this.asesor = asesor;
-        this.nAs= nAs;
+        this.nAs = nAs;
         this.apAs = apAs;
     }
+
+    
 
     public int getId() {
         return id;

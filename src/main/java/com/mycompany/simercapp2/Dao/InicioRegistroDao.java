@@ -6,10 +6,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.JOptionPane;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class InicioRegistroDao extends conexion {
-
+    
+   
+    
     public boolean guardar(Asesor as) {
 
         Connection con = getConection();
@@ -38,23 +43,53 @@ public class InicioRegistroDao extends conexion {
         Connection con = getConection();
         PreparedStatement ps=null;
         ResultSet rs;
-        
-        String sql = "SELECT correo, password FROM asesor WHERE correo='"+user+"' AND password='"+pass+"'";
+        String sql = "SELECT id,correo, password FROM asesor WHERE correo='"+user+"' AND password='"+pass+"'";
         
         try {
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             if(rs.next()){
-                return true;
-            }else {
+            
+            return true;
+            }else{
                 return false;
             }
         } catch (SQLException ex) {
             System.err.println(ex);
             return false;
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(InicioRegistroDao.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }   
+    }
+    public List enId(String user,String pass){
+         Connection con = getConection();
+        PreparedStatement ps=null;
+        ResultSet rs;
+        List<Asesor>datos= new ArrayList<>();
+        String sql = "SELECT id,correo, password FROM asesor WHERE correo='"+user+"' AND password='"+pass+"'";
+        try{
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                Asesor as = new Asesor();
+                
+                as.setId(rs.getInt(1));
+                datos.add(as);
+            }
+        }catch(SQLException ex){
+            System.err.println(ex);
+        }finally{
+             try {
+                 con.close();
+             } catch (SQLException ex) {
+                 Logger.getLogger(InicioRegistroDao.class.getName()).log(Level.SEVERE, null, ex);
+             }
         }
-        
-        
+        return datos;
     }
 
 }

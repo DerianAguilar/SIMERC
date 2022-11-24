@@ -59,8 +59,8 @@ public class VistaNcontacto extends javax.swing.JFrame {
         cmbModalidad = new javax.swing.JComboBox<>();
         btnCancelar = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
-        btnVolver = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        btnRegresar = new javax.swing.JLabel();
+        jtIdAs = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -156,19 +156,17 @@ public class VistaNcontacto extends javax.swing.JFrame {
         btnGuardar.setForeground(new java.awt.Color(0, 0, 0));
         btnGuardar.setText("GUARDAR");
 
-        btnVolver.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnRegresar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ryzen\\simercApp2\\src\\main\\java\\com\\mycompany\\simercapp2\\Imagen\\volver-flecha-izquierda_1.png")); // NOI18N
+        btnRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnVolverMouseClicked(evt);
+                btnRegresarMouseClicked(evt);
             }
         });
 
-        jLabel14.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ryzen\\simercApp2\\src\\main\\java\\com\\mycompany\\simercapp2\\Imagen\\volver-flecha-izquierda_1.png")); // NOI18N
-        jLabel14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel14MouseClicked(evt);
-            }
-        });
+        jtIdAs.setBackground(new java.awt.Color(255, 255, 255));
+        jtIdAs.setForeground(new java.awt.Color(255, 255, 255));
+        jtIdAs.setBorder(null);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -176,10 +174,8 @@ public class VistaNcontacto extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(392, 392, 392)
+                .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(491, 491, 491)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(237, 561, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -205,7 +201,10 @@ public class VistaNcontacto extends javax.swing.JFrame {
                     .addComponent(jtColegio)
                     .addComponent(jtDireccion)
                     .addComponent(jtNacionalidad)
-                    .addComponent(cmbTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(cmbTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtIdAs, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(cmbModalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -222,13 +221,12 @@ public class VistaNcontacto extends javax.swing.JFrame {
                         .addComponent(jLabel2))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnVolver, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))))
+                        .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(89, 89, 89)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(cmbTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtIdAs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
@@ -299,20 +297,18 @@ public class VistaNcontacto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelarActionPerformed
 
-    private void btnVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnVolverMouseClicked
-
-    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+    private void btnRegresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseClicked
+        String idU= jtIdAs.getText();
         ControladorVistaPrincipal ctrlVistaPrincipal = new ControladorVistaPrincipal();
-        ctrlVistaPrincipal.iniciar();
+        ctrlVistaPrincipal.iniciar(idU);
         this.dispose();
                 
-    }//GEN-LAST:event_jLabel14MouseClicked
+    }//GEN-LAST:event_btnRegresarMouseClicked
 
     private void btnInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInicioMouseClicked
+        String idU= jtIdAs.getText();
         ControladorVistaPrincipal ctrlVistaPrincipal = new ControladorVistaPrincipal();
-        ctrlVistaPrincipal.iniciar();
+        ctrlVistaPrincipal.iniciar(idU);
         this.dispose();
     }//GEN-LAST:event_btnInicioMouseClicked
 
@@ -354,16 +350,15 @@ public class VistaNcontacto extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnCancelar;
     public javax.swing.JButton btnGuardar;
-    private javax.swing.JLabel btnInicio;
+    public javax.swing.JLabel btnInicio;
+    public javax.swing.JLabel btnRegresar;
     public javax.swing.JLabel btnSalir;
-    public javax.swing.JLabel btnVolver;
     public javax.swing.JComboBox<String> cmbModalidad;
     public javax.swing.JComboBox<String> cmbTipoDocumento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -379,6 +374,7 @@ public class VistaNcontacto extends javax.swing.JFrame {
     public javax.swing.JTextField jtCorreo;
     public javax.swing.JTextField jtDireccion;
     public javax.swing.JTextField jtDocumento;
+    public javax.swing.JTextField jtIdAs;
     public javax.swing.JTextField jtNacionalidad;
     public javax.swing.JTextField jtNombre;
     public javax.swing.JTextField jtTelefono;

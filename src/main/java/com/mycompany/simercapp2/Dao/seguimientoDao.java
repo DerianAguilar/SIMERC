@@ -22,7 +22,7 @@ public class seguimientoDao extends conexion {
         ResultSet rs;
       
         List<Contacto> datos = new ArrayList<>();
-        String sql = "SELECT a.*,b.nombre,b.apellido From contacto a INNER JOIN asesor b ON a.id_asesor=b.id AND a.nombre LIKE '%" + buscar + "%' OR a.apellido LIKE '%" + buscar + "%' OR a.documento LIKE '%" + buscar+ "%' OR a.correo LIKE '%" + buscar + "%'";
+        String sql = "SELECT a.*,b.nombre,b.apellido From contacto a INNER JOIN asesor b ON a.id_asesor=b.id AND a.nombre LIKE '%"+buscar+"%' OR a.apellido LIKE '%"+buscar+"%' OR a.documento LIKE '%"+buscar+"%' GROUP BY a.nombre ORDER BY a.id";
         try {
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();

@@ -5,6 +5,7 @@ import com.mycompany.simercapp2.Modelo.Asesor;
 import com.mycompany.simercapp2.Vista.vistaLogin;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class ControladorVistaLogin implements MouseListener {
@@ -13,12 +14,14 @@ public class ControladorVistaLogin implements MouseListener {
     private Asesor as;
     private InicioRegistroDao registrarDao;
     private ControladorVistaPrincipal ctrlVistaPrincipal;
+    private ControladorVistaNcontacto ctrlVistaNcontacto;
 
     public ControladorVistaLogin() {
         this.vLogin = new vistaLogin();
         this.as = new Asesor();
         this.registrarDao = new InicioRegistroDao();
         this.ctrlVistaPrincipal = new ControladorVistaPrincipal();
+        this.ctrlVistaNcontacto= new ControladorVistaNcontacto();
         this.vLogin.btnIngresar.addMouseListener(this);
         this.vLogin.btnRegistrar.addMouseListener(this);
         this.vLogin.btnCancelar.addMouseListener(this);
@@ -100,12 +103,19 @@ public class ControladorVistaLogin implements MouseListener {
     public void ingresar() {
         String user = vLogin.jtUser.getText();
         String pass = String.valueOf(vLogin.jtPass.getText());
+        String id="";
        
             
             if (registrarDao.ingresar(user, pass)) {
+                List<Asesor>lista=registrarDao.enId(user, pass);
+                for(int i=0;i<lista.size();i++){
+                    id= String.valueOf(lista.get(i).getId());
+                }
+                
+                
                 ocultar();
                 limpiarI();
-                ctrlVistaPrincipal.iniciar();
+                ctrlVistaPrincipal.iniciar(id);
 
             }else{
                 limpiarI();

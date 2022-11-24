@@ -49,7 +49,8 @@ public class vistaSeguimiento extends javax.swing.JFrame {
         tContacto = new javax.swing.JTable();
         jtVer = new javax.swing.JTextField();
         btnRegistrar = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        btnVolver = new javax.swing.JLabel();
+        txtidU = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -162,14 +163,20 @@ public class vistaSeguimiento extends javax.swing.JFrame {
         btnRegistrar.setText("REGISTRAR");
         jPanel2.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(649, 347, 130, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ryzen\\simercApp2\\src\\main\\java\\com\\mycompany\\simercapp2\\Imagen\\volver-flecha-izquierda_1.png")); // NOI18N
-        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnVolver.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ryzen\\simercApp2\\src\\main\\java\\com\\mycompany\\simercapp2\\Imagen\\volver-flecha-izquierda_1.png")); // NOI18N
+        btnVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                btnVolverMouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
+        jPanel2.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
+
+        txtidU.setBackground(new java.awt.Color(255, 255, 255));
+        txtidU.setForeground(new java.awt.Color(255, 255, 255));
+        txtidU.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtidU.setEnabled(false);
+        jPanel2.add(txtidU, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 1500, 640));
 
@@ -181,16 +188,18 @@ public class vistaSeguimiento extends javax.swing.JFrame {
     }//GEN-LAST:event_jtBuscarKeyReleased
 
     private void btnInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInicioMouseClicked
-       ControladorVistaPrincipal ctrlVistaPrincipal = new ControladorVistaPrincipal();
-       ctrlVistaPrincipal.iniciar();
+       String id=txtidU.getText();
+        ControladorVistaPrincipal ctrlVistaPrincipal = new ControladorVistaPrincipal();
+       ctrlVistaPrincipal.iniciar(id);
        this.dispose();
     }//GEN-LAST:event_btnInicioMouseClicked
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+    private void btnVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseClicked
+        String id=txtidU.getText();
         ControladorVistaPrincipal ctrlPrincipal = new ControladorVistaPrincipal();
-        ctrlPrincipal.iniciar();
+        ctrlPrincipal.iniciar(id);
         this.dispose();
-    }//GEN-LAST:event_jLabel4MouseClicked
+    }//GEN-LAST:event_btnVolverMouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         int input = JOptionPane.showConfirmDialog(null, "SE VA A CERRAR LA SESION", "CERRAR SESION",
@@ -255,13 +264,13 @@ public class vistaSeguimiento extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton brnVer;
     public javax.swing.JButton btnBuscar;
-    private javax.swing.JLabel btnInicio;
+    public javax.swing.JLabel btnInicio;
     public javax.swing.JButton btnLimpiar;
     public javax.swing.JButton btnRegistrar;
+    public javax.swing.JLabel btnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -271,5 +280,6 @@ public class vistaSeguimiento extends javax.swing.JFrame {
     public javax.swing.JTextField jtVer;
     public javax.swing.JTable tContacto;
     public javax.swing.JTable tHistorial;
+    public javax.swing.JTextField txtidU;
     // End of variables declaration//GEN-END:variables
 }

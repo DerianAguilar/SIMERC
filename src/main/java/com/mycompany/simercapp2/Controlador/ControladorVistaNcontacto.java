@@ -2,6 +2,7 @@ package com.mycompany.simercapp2.Controlador;
 
 
 import com.mycompany.simercapp2.Dao.ContactoDao;
+import com.mycompany.simercapp2.Dao.InicioRegistroDao;
 import com.mycompany.simercapp2.Modelo.Contacto;
 import com.mycompany.simercapp2.Vista.vistaLogin;
 import com.mycompany.simercapp2.Vista.VistaNcontacto;
@@ -17,6 +18,8 @@ public class ControladorVistaNcontacto implements ActionListener{
     private VistaNcontacto vNcot;
     private vistaLogin vLog;
     private ControladorVistaPrincipal ctrlVistaPrincipal;
+    private InicioRegistroDao registroDao;
+    private String ida;
 
     public ControladorVistaNcontacto() {
         this.cot = new Contacto();
@@ -24,15 +27,20 @@ public class ControladorVistaNcontacto implements ActionListener{
         this.vNcot = new VistaNcontacto();
         this.vLog = new vistaLogin();
         this.ctrlVistaPrincipal = new ControladorVistaPrincipal();
+        this.registroDao= new InicioRegistroDao();
         this.vNcot.btnGuardar.addActionListener(this);
         this.vNcot.btnCancelar.addActionListener(this);
         
 
     }
 
-    public void iniciar() {
+    public void iniciar(String idU) {
+        this.ida=idU;
         vNcot.setTitle("nuevo contacto");
         vNcot.setLocationRelativeTo(null);
+        vNcot.jtIdAs.setText(idU);
+        String idString=vNcot.jtIdAs.getText();
+        System.out.println(idString);
         mostrar();
         
     }
@@ -62,6 +70,8 @@ public class ControladorVistaNcontacto implements ActionListener{
     public void guardar() {
         String td = vNcot.cmbTipoDocumento.getSelectedItem().toString();
         String md = vNcot.cmbModalidad.getSelectedItem().toString();
+        int idAs = Integer.parseInt(vNcot.jtIdAs.getText());
+        
 
         cot.setTipoDocumento(td);
         cot.setDocumento(vNcot.jtDocumento.getText());
@@ -72,6 +82,7 @@ public class ControladorVistaNcontacto implements ActionListener{
         cot.setColegio(vNcot.jtColegio.getText());
         cot.setDireccion(vNcot.jtDireccion.getText());
         cot.setNacionalidad(vNcot.jtNacionalidad.getText());
+        cot.setAsesor(idAs);
         cot.setModalidad(md);
 
         if (cotDao.guardar(cot)) {
@@ -91,7 +102,7 @@ public class ControladorVistaNcontacto implements ActionListener{
         vNcot.setVisible(false);
     }
 
-    
+   
 
    
 
