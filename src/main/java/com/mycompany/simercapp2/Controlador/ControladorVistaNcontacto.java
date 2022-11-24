@@ -34,16 +34,7 @@ public class ControladorVistaNcontacto implements ActionListener{
 
     }
 
-    public void iniciar(String idU) {
-        this.ida=idU;
-        vNcot.setTitle("nuevo contacto");
-        vNcot.setLocationRelativeTo(null);
-        vNcot.jtIdAs.setText(idU);
-        String idString=vNcot.jtIdAs.getText();
-        System.out.println(idString);
-        mostrar();
-        
-    }
+   
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -94,8 +85,14 @@ public class ControladorVistaNcontacto implements ActionListener{
         }
     }
 
-    public void mostrar() {
+    public void mostrar(String idU) {
+        
+        this.ida=idU;
+        vNcot.setLocationRelativeTo(null);
+        vNcot.jtIdAs.setText(idU);
         vNcot.setVisible(true);
+        String idString=vNcot.jtIdAs.getText();
+        System.out.println(idString);
     }
 
     public void ocultar() {

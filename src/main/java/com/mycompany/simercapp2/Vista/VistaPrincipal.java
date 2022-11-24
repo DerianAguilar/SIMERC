@@ -5,7 +5,6 @@
  */
 package com.mycompany.simercapp2.Vista;
 
-import com.mycompany.simercapp2.Controlador.ControladorRegContacto;
 import com.mycompany.simercapp2.Controlador.ControladorVistaEnCorreo;
 import com.mycompany.simercapp2.Controlador.ControladorVistaLogin;
 import com.mycompany.simercapp2.Controlador.ControladorVistaNcontacto;
@@ -45,7 +44,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         btnSeguimiento = new javax.swing.JLabel();
         txtIdU = new javax.swing.JTextField();
         pEnCorreo = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        btnCorreo = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -139,14 +138,14 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         pEnCorreo.setBackground(new java.awt.Color(153, 0, 0));
 
-        jLabel4.setFont(new java.awt.Font("Baskerville Old Face", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("CORREO");
-        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnCorreo.setFont(new java.awt.Font("Baskerville Old Face", 1, 18)); // NOI18N
+        btnCorreo.setForeground(new java.awt.Color(255, 255, 255));
+        btnCorreo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnCorreo.setText("CORREO");
+        btnCorreo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCorreo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                btnCorreoMouseClicked(evt);
             }
         });
 
@@ -154,11 +153,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         pEnCorreo.setLayout(pEnCorreoLayout);
         pEnCorreoLayout.setHorizontalGroup(
             pEnCorreoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+            .addComponent(btnCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
         );
         pEnCorreoLayout.setVerticalGroup(
             pEnCorreoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+            .addComponent(btnCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -221,8 +220,9 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private void btnNcontactoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNcontactoMouseClicked
         String idU=txtIdU.getText();
         
+        
         ControladorVistaNcontacto ctrlNcontacto = new ControladorVistaNcontacto();
-        ctrlNcontacto.iniciar(idU);
+        ctrlNcontacto.mostrar(idU);
         this.dispose();
     }//GEN-LAST:event_btnNcontactoMouseClicked
 
@@ -253,12 +253,12 @@ public class VistaPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jLabel3MouseEntered
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+    private void btnCorreoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCorreoMouseClicked
         String idU=txtIdU.getText();
         ControladorVistaEnCorreo ctrlEnCorreo = new ControladorVistaEnCorreo();
-        ctrlEnCorreo.iniciar(idU);
+        ctrlEnCorreo.mostrar(idU);
         this.dispose();
-    }//GEN-LAST:event_jLabel4MouseClicked
+    }//GEN-LAST:event_btnCorreoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -296,12 +296,12 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnCorreo;
     public javax.swing.JLabel btnNcontacto;
     public javax.swing.JLabel btnSeguimiento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

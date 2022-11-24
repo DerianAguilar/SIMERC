@@ -5,6 +5,7 @@
  */
 package com.mycompany.simercapp2.Vista;
 
+import com.mycompany.simercapp2.Controlador.ControladorVistaEnCorreo;
 import com.mycompany.simercapp2.Controlador.ControladorVistaLogin;
 import javax.swing.JOptionPane;
 
@@ -46,6 +47,7 @@ public class VistaDesCorreo extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 0, 0));
@@ -109,6 +111,11 @@ public class VistaDesCorreo extends javax.swing.JFrame {
         btnCancelar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setText("CANCELAR");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1084, 550, 130, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 1500, 630));
@@ -130,6 +137,16 @@ public class VistaDesCorreo extends javax.swing.JFrame {
             ctrLogin.iniciar();
         }
     }//GEN-LAST:event_btnSalirMouseClicked
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        jtAsunto.setText("");
+        jtDescrip.setText("");
+        
+        String idU = txtIdU.getText();
+        ControladorVistaEnCorreo ctrEnCorreo = new ControladorVistaEnCorreo();
+        ctrEnCorreo.mostrar(idU);
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
