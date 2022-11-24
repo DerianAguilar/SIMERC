@@ -91,5 +91,32 @@ public class InicioRegistroDao extends conexion {
         }
         return datos;
     }
+    public boolean valAd(String pass) {
+        Connection con = getConection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT password FROM asesor WHERE password='" + pass + "'";
+
+        try {
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException e) {
+            System.err.println(e);
+            return  false;
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(InicioRegistroDao.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
 
 }

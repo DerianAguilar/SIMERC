@@ -21,11 +21,12 @@ public class ControladorVistaLogin implements MouseListener {
         this.as = new Asesor();
         this.registrarDao = new InicioRegistroDao();
         this.ctrlVistaPrincipal = new ControladorVistaPrincipal();
-        this.ctrlVistaNcontacto= new ControladorVistaNcontacto();
+        this.ctrlVistaNcontacto = new ControladorVistaNcontacto();
         this.vLogin.btnIngresar.addMouseListener(this);
         this.vLogin.btnRegistrar.addMouseListener(this);
         this.vLogin.btnCancelar.addMouseListener(this);
         this.vLogin.btnGuardar.addMouseListener(this);
+        this.vLogin.btnAceptar.addMouseListener(this);
 
     }
 
@@ -35,6 +36,9 @@ public class ControladorVistaLogin implements MouseListener {
         vLogin.txtConIn.setVisible(false);
         mostrar();
         vLogin.ventanaRegistrar.setVisible(false);
+        vLogin.txtConInVal.setVisible(false);
+        vLogin.pValAdmin.setVisible(false);
+
     }
 
     public void mostrar() {
@@ -51,8 +55,14 @@ public class ControladorVistaLogin implements MouseListener {
             ingresar();
         }
         if (e.getSource() == vLogin.btnRegistrar) {
-            vLogin.ventanaRegistrar.setVisible(true);
             vLogin.ventanaInicioSesion.setVisible(false);
+            vLogin.pValAdmin.setVisible(true);
+
+        }
+        if (e.getSource() == vLogin.btnAceptar) {
+            System.out.println("achaehjbvsbv");
+            valAdmin();
+
         }
         if (e.getSource() == vLogin.btnCancelar) {
             limpiar();
@@ -103,36 +113,51 @@ public class ControladorVistaLogin implements MouseListener {
     public void ingresar() {
         String user = vLogin.jtUser.getText();
         String pass = String.valueOf(vLogin.jtPass.getText());
-        String id="";
-       
-            
-            if (registrarDao.ingresar(user, pass)) {
-                List<Asesor>lista=registrarDao.enId(user, pass);
-                for(int i=0;i<lista.size();i++){
-                    id= String.valueOf(lista.get(i).getId());
-                }
-                
-                
-                ocultar();
-                limpiarI();
-                ctrlVistaPrincipal.iniciar(id);
+        String id = "";
 
-            }else{
-                limpiarI();
-                vLogin.txtConIn.setVisible(true);
+        if (registrarDao.ingresar(user, pass)) {
+            List<Asesor> lista = registrarDao.enId(user, pass);
+            for (int i = 0; i < lista.size(); i++) {
+                id = String.valueOf(lista.get(i).getId());
             }
-        
+
+            ocultar();
+            limpiarI();
+            ctrlVistaPrincipal.iniciar(id);
+
+        } else {
+            limpiarI();
+            vLogin.txtConIn.setVisible(true);
+        }
+
     }
+
     public void limpiarI() {
         vLogin.jtUser.setText("");
         vLogin.jtPass.setText("");
     }
+
     public void limpiar() {
         vLogin.jtDocumento.setText("");
         vLogin.jtNombre.setText("");
         vLogin.jtApellido.setText("");
         vLogin.jtCorreo.setText("");
         vLogin.jtContraseña.setText("");
+    }
+
+    public void valAdmin() {
+        String pass = String.valueOf(vLogin.txtClaveAd.getText());
+
+        if (registrarDao.valAd(pass)) {
+            vLogin.txtClaveAd.setText("");
+            vLogin.ventanaRegistrar.setVisible(true);
+            vLogin.ventanaInicioSesion.setVisible(false);
+            vLogin.pValAdmin.setVisible(false);
+        } else {
+            vLogin.txtClaveAd.setText("");
+            vLogin.txtConInVal.setVisible(true);
+        }
+
     }
 
 }

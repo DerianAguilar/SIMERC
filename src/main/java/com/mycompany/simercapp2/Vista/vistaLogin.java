@@ -45,6 +45,15 @@ public class vistaLogin extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JLabel();
         pCancelar = new javax.swing.JPanel();
         btnCancelar = new javax.swing.JLabel();
+        pValAdmin = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        pAceptar = new javax.swing.JPanel();
+        btnAceptar = new javax.swing.JLabel();
+        pCancel = new javax.swing.JPanel();
+        btnCancel = new javax.swing.JLabel();
+        txtClaveAd = new javax.swing.JPasswordField();
+        txtConInVal = new javax.swing.JLabel();
         ventanaInicioSesion = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -171,6 +180,94 @@ public class vistaLogin extends javax.swing.JFrame {
         ventanaRegistrar.add(pCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 560, -1, -1));
 
         getContentPane().add(ventanaRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 650));
+
+        pValAdmin.setBackground(new java.awt.Color(255, 255, 255));
+        pValAdmin.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pValAdmin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel11.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("INGRESE CLAVE DE ADMINISTRADOR");
+        pValAdmin.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 520, -1));
+
+        jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ryzen\\simercApp2\\src\\main\\java\\com\\mycompany\\simercapp2\\Imagen\\candado.png")); // NOI18N
+        pValAdmin.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 161, -1, -1));
+
+        pAceptar.setBackground(new java.awt.Color(153, 0, 0));
+
+        btnAceptar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btnAceptar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAceptar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnAceptar.setText("ACEPTAR");
+        btnAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAceptar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAceptarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAceptarMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pAceptarLayout = new javax.swing.GroupLayout(pAceptar);
+        pAceptar.setLayout(pAceptarLayout);
+        pAceptarLayout.setHorizontalGroup(
+            pAceptarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pAceptarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        pAceptarLayout.setVerticalGroup(
+            pAceptarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pAceptarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        pValAdmin.add(pAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, -1, -1));
+
+        pCancel.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnCancel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnCancel.setForeground(new java.awt.Color(0, 0, 0));
+        btnCancel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnCancel.setText("X");
+        btnCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCancelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCancelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCancelMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pCancelLayout = new javax.swing.GroupLayout(pCancel);
+        pCancel.setLayout(pCancelLayout);
+        pCancelLayout.setHorizontalGroup(
+            pCancelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pCancelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        pCancelLayout.setVerticalGroup(
+            pCancelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnCancel, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        pValAdmin.add(pCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 50));
+        pValAdmin.add(txtClaveAd, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 340, -1));
+
+        txtConInVal.setForeground(new java.awt.Color(204, 0, 0));
+        txtConInVal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtConInVal.setText("CONTRASEÑA INCORRECTA");
+        pValAdmin.add(txtConInVal, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 340, -1));
+
+        getContentPane().add(pValAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 520, 340));
 
         ventanaInicioSesion.setBackground(new java.awt.Color(255, 255, 255));
         ventanaInicioSesion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -317,9 +414,7 @@ public class vistaLogin extends javax.swing.JFrame {
         pSalir.setLayout(pSalirLayout);
         pSalirLayout.setHorizontalGroup(
             pSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pSalirLayout.createSequentialGroup()
-                .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
         pSalirLayout.setVerticalGroup(
             pSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -335,7 +430,7 @@ public class vistaLogin extends javax.swing.JFrame {
         txtConIn.setText("USUARIO O CONTRASEÑA INCORRECTA");
         ventanaInicioSesion.add(txtConIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 430, 30));
 
-        getContentPane().add(ventanaInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 650));
+        getContentPane().add(ventanaInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -413,6 +508,29 @@ public class vistaLogin extends javax.swing.JFrame {
         pGuardar.setBackground(new Color (0,204,0));
     }//GEN-LAST:event_btnGuardarMouseExited
 
+    private void btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseClicked
+        pValAdmin.setVisible(false);
+        ventanaInicioSesion.setVisible(true);
+    }//GEN-LAST:event_btnCancelMouseClicked
+
+    private void btnCancelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseEntered
+        pCancel.setBackground(Color.red);
+        btnCancel.setForeground(Color.white);
+    }//GEN-LAST:event_btnCancelMouseEntered
+
+    private void btnCancelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseExited
+        pCancel.setBackground(Color.white);
+        btnCancel.setForeground(Color.black);
+    }//GEN-LAST:event_btnCancelMouseExited
+
+    private void btnAceptarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAceptarMouseEntered
+        pAceptar.setBackground(Color.red);
+    }//GEN-LAST:event_btnAceptarMouseEntered
+
+    private void btnAceptarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAceptarMouseExited
+        pAceptar.setBackground(new Color (153,0,0));
+    }//GEN-LAST:event_btnAceptarMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -449,6 +567,8 @@ public class vistaLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JLabel btnAceptar;
+    private javax.swing.JLabel btnCancel;
     public javax.swing.JLabel btnCancelar;
     public javax.swing.JLabel btnGuardar;
     public javax.swing.JLabel btnIngresar;
@@ -456,6 +576,8 @@ public class vistaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -473,12 +595,17 @@ public class vistaLogin extends javax.swing.JFrame {
     public javax.swing.JTextField jtNombre;
     public javax.swing.JPasswordField jtPass;
     public javax.swing.JTextField jtUser;
+    private javax.swing.JPanel pAceptar;
+    private javax.swing.JPanel pCancel;
     private javax.swing.JPanel pCancelar;
     private javax.swing.JPanel pGuardar;
     private javax.swing.JPanel pIngresar;
     private javax.swing.JPanel pRegistrar;
     private javax.swing.JPanel pSalir;
+    public javax.swing.JPanel pValAdmin;
+    public javax.swing.JPasswordField txtClaveAd;
     public javax.swing.JLabel txtConIn;
+    public javax.swing.JLabel txtConInVal;
     public javax.swing.JPanel ventanaInicioSesion;
     public javax.swing.JPanel ventanaRegistrar;
     // End of variables declaration//GEN-END:variables
