@@ -36,6 +36,12 @@ public class InicioRegistroDao extends conexion {
         } catch (SQLException ex) {
             System.err.println(ex);
             return false;
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(InicioRegistroDao.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
     }
