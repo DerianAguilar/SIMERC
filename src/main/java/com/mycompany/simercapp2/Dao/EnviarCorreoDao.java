@@ -55,7 +55,7 @@ public class EnviarCorreoDao extends conexion{
         ResultSet rs;
         
         List<Contacto>datos= new ArrayList<>();
-        String sql = "SELECT correo FROM contacto WHERE id="+id;
+        String sql = "SELECT correo,UPPER(nombre) FROM contacto WHERE id="+id;
         try{
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
@@ -63,6 +63,37 @@ public class EnviarCorreoDao extends conexion{
                 Contacto cot = new Contacto();
                 
                 cot.setCorreo(rs.getString(1));
+                cot.setNombre(rs.getString(2));
+                datos.add(cot);
+            }
+        }catch(SQLException ex){
+            System.err.println(ex);
+        }finally{
+             try {
+                 con.close();
+             } catch (SQLException ex) {
+                 Logger.getLogger(InicioRegistroDao.class.getName()).log(Level.SEVERE, null, ex);
+             }
+        }
+        return datos;
+        
+    }
+    
+    public List correoTodos(){
+        Connection con = getConection();
+        PreparedStatement ps=null;
+        ResultSet rs;
+        
+        List<Contacto>datos= new ArrayList<>();
+        String sql = "SELECT correo,UPPER(nombre) FROM contacto";
+        try{
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                Contacto cot = new Contacto();
+                
+                cot.setCorreo(rs.getString(1));
+                cot.setNombre(rs.getString(2));
                 datos.add(cot);
             }
         }catch(SQLException ex){

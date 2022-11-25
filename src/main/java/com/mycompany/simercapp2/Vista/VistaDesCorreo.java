@@ -11,6 +11,7 @@ import com.mycompany.simercapp2.Controlador.ControladorVistaLogin;
 import com.mycompany.simercapp2.Dao.EnviarCorreoDao;
 import com.mycompany.simercapp2.Modelo.Asesor;
 import com.mycompany.simercapp2.Modelo.Contacto;
+import java.awt.Font;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -129,48 +130,74 @@ public class VistaDesCorreo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEnviarCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarCorreoActionPerformed
-        String asunto=jtAsunto.getText();
-        String descripcion=jtDescrip.getText();
-        
-        String idU= txtIdU.getText();
-        String idF=txtFila.getText();
-        
-        String correoEmisor="";
-        String correoReceptor="";
-        String contraseñaCorreo="";
-        
-        
-        EnviarCorreoDao enCoDao = new EnviarCorreoDao();
-        
-        
-        List<Asesor>lista=enCoDao.correoE(idU);
-            List<Contacto>listaC=enCoDao.correoR(idF);
-            
-            for(int i=0;i<lista.size();i++){
-                correoEmisor= lista.get(i).getCorreo();
-                contraseñaCorreo= lista.get(i).getContraseña();
-                
+        String asunto = jtAsunto.getText();
+        String descripcion = jtDescrip.getText();
+
+        String idU = txtIdU.getText();
+        String idF = txtFila.getText();
+
+        String correoEmisor = "";
+        String correoReceptor = "";
+        String contraseñaCorreo = "";
+
+        int c = JOptionPane.showConfirmDialog(null, "Enviar Correo? ", "Confirmacion", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
+
+        if (c == 0) {
+            EnviarCorreoDao enCoDao = new EnviarCorreoDao();
+            List<Asesor> lista = enCoDao.correoE(idU);
+            if (idF.equals("todos")) {
+
+                for (int i = 0; i < lista.size(); i++) {
+                    correoEmisor = lista.get(i).getCorreo();
+                    contraseñaCorreo = lista.get(i).getContraseña();
+
+                }
+
+                List<Contacto> listaC = enCoDao.correoTodos();
+                for (int i = 0; i < listaC.size(); i++) {
+                    String nombre="";
+                    correoReceptor = listaC.get(i).getCorreo();
+                    nombre= listaC.get(i).getNombre();
+                    String mensaje = "HOLA "+nombre+"\n\n\n"+descripcion;
+                    System.out.println(mensaje);
+
+                    ControladorVistaDesCorreo ctrlDesCorreo = new ControladorVistaDesCorreo();
+                    ctrlDesCorreo.enviarCorreo(asunto, mensaje, correoEmisor, correoReceptor, contraseñaCorreo);
+                    System.out.println(correoReceptor);
+                }
+                JOptionPane.showMessageDialog(null, "Correo enviado");
+
+            } else {
+                List<Contacto> listaC = enCoDao.correoR(idF);
+                String mensaje="";
+                for (int i = 0; i < lista.size(); i++) {
+                    correoEmisor = lista.get(i).getCorreo();
+                    contraseñaCorreo = lista.get(i).getContraseña();
+
+                }
+                for (int i = 0; i < listaC.size(); i++) {
+                    String nombre="";
+                    correoReceptor = listaC.get(i).getCorreo();
+                    nombre= listaC.get(i).getNombre();
+                    mensaje = "HOLA "+nombre+"\n\n\n"+descripcion;
+                    System.out.println(mensaje);
+                }
+                ControladorVistaDesCorreo ctrlDesCorreo = new ControladorVistaDesCorreo();
+                ctrlDesCorreo.enviarCorreo(asunto, mensaje, correoEmisor, correoReceptor, contraseñaCorreo);
+                JOptionPane.showMessageDialog(null, "Correo enviado");
             }
-            for(int i=0;i<listaC.size();i++){
-                correoReceptor= listaC.get(i).getCorreo();
-            }
-            System.out.println(correoEmisor);
-            System.out.println(correoReceptor);
-            System.out.println(contraseñaCorreo);
-            
-        ControladorVistaDesCorreo ctrlDesCorreo= new ControladorVistaDesCorreo();
-        ctrlDesCorreo.enviarCorreo(asunto, descripcion,correoEmisor,correoReceptor,contraseñaCorreo);
-        
+        }
+
         jtAsunto.setText("");
         jtDescrip.setText("");
     }//GEN-LAST:event_btnEnviarCorreoActionPerformed
 
     private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
-         int input = JOptionPane.showConfirmDialog(null, "SE VA A CERRAR LA SESION", "CERRAR SESION",
-				JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
-        
-        if(input == 0){
-            ControladorVistaLogin ctrLogin= new ControladorVistaLogin();
+        int input = JOptionPane.showConfirmDialog(null, "SE VA A CERRAR LA SESION", "CERRAR SESION",
+                JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
+
+        if (input == 0) {
+            ControladorVistaLogin ctrLogin = new ControladorVistaLogin();
             this.dispose();
             ctrLogin.iniciar();
         }
@@ -179,7 +206,7 @@ public class VistaDesCorreo extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         jtAsunto.setText("");
         jtDescrip.setText("");
-        
+
         String idU = txtIdU.getText();
         ControladorVistaEnCorreo ctrEnCorreo = new ControladorVistaEnCorreo();
         ctrEnCorreo.mostrar(idU);

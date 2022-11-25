@@ -51,9 +51,9 @@ public class ControladorVistaDesCorreo {
     public void enviarCorreo(String asunto, String descripcion,String correoEmisor,String correoReceptor,String contraseñaCorreo) {
         
 
-        int c = JOptionPane.showConfirmDialog(null, "Enviar Correo? ", "Confirmacion", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
         
-        if (c == 0) {
+        
+        
             String idU= vdc.txtIdU.getText();
             String idF=vdc.txtFila.getText();
             
@@ -80,12 +80,12 @@ public class ControladorVistaDesCorreo {
                 transporte.sendMessage(mail, mail.getRecipients(Message.RecipientType.TO));
                 transporte.close();
 
-                JOptionPane.showMessageDialog(null, "Correo enviado");
+                
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Error al enviar el correo " + ex);
             }
 
-        }
+        
     }
 
 }
