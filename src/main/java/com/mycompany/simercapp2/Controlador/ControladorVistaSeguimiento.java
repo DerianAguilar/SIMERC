@@ -66,6 +66,7 @@ public class ControladorVistaSeguimiento implements ActionListener {
     
     public void buscar(JTable tabla) {
         String buscar = vSeguimiento.jtBuscar.getText();
+        System.out.println(buscar);
         if (buscar.equals("")) {
             System.out.println("Ninguna palabra a buscar");
         } else {

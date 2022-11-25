@@ -61,6 +61,7 @@ public class ControladorVistaNcontacto implements ActionListener{
     public void guardar() {
         String td = vNcot.cmbTipoDocumento.getSelectedItem().toString();
         String md = vNcot.cmbModalidad.getSelectedItem().toString();
+        String pgm= vNcot.cmbPrograma.getSelectedItem().toString();
         int idAs = Integer.parseInt(vNcot.jtIdAs.getText());
         
 
@@ -74,7 +75,10 @@ public class ControladorVistaNcontacto implements ActionListener{
         cot.setDireccion(vNcot.jtDireccion.getText());
         cot.setNacionalidad(vNcot.jtNacionalidad.getText());
         cot.setAsesor(idAs);
+        cot.setPrograma(pgm);
         cot.setModalidad(md);
+        cot.setObservaciones(vNcot.jtObservaciones.getText());
+        
 
         if (cotDao.guardar(cot)) {
             JOptionPane.showMessageDialog(null, "GUARDADO EXITOSAMENTE");

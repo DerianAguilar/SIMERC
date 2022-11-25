@@ -12,7 +12,7 @@ public class ContactoDao extends conexion {
         PreparedStatement ps = null;
         Connection con = getConection();
 
-        String sql = "INSERT INTO contacto (tDocumento,documento,nombre,apellido,nacionalidad,correo,telefono,colegio,direccion,modalidad,id_asesor ) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO contacto (tDocumento,documento,nombre,apellido,nacionalidad,correo,telefono,colegio,direccion,programa,modalidad,observaciones,id_asesor ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
         
         try {
             ps = con.prepareStatement(sql);
@@ -25,8 +25,10 @@ public class ContactoDao extends conexion {
             ps.setString(7, cot.getTelefono());
             ps.setString(8, cot.getColegio());
             ps.setString(9, cot.getDireccion());
-            ps.setString(10, cot.getModalidad());
-            ps.setInt(11, cot.getAsesor());
+            ps.setString(10, cot.getPrograma());
+            ps.setString(11, cot.getModalidad());
+            ps.setString(12, cot.getObservaciones());
+            ps.setInt(13, cot.getAsesor());
             ps.execute();
             return true;
 
