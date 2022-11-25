@@ -5,8 +5,13 @@
  */
 package com.mycompany.simercapp2.Vista;
 
+import com.mycompany.simercapp2.Controlador.ControladorVistaDesCorreo;
 import com.mycompany.simercapp2.Controlador.ControladorVistaEnCorreo;
 import com.mycompany.simercapp2.Controlador.ControladorVistaLogin;
+import com.mycompany.simercapp2.Dao.EnviarCorreoDao;
+import com.mycompany.simercapp2.Modelo.Asesor;
+import com.mycompany.simercapp2.Modelo.Contacto;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -43,7 +48,7 @@ public class VistaDesCorreo extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtDescrip = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        btnEnviarCorreo = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -96,16 +101,16 @@ public class VistaDesCorreo extends javax.swing.JFrame {
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, 610, 180));
 
-        jButton1.setBackground(new java.awt.Color(0, 255, 0));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("ENVIAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnEnviarCorreo.setBackground(new java.awt.Color(0, 255, 0));
+        btnEnviarCorreo.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btnEnviarCorreo.setForeground(new java.awt.Color(255, 255, 255));
+        btnEnviarCorreo.setText("ENVIAR");
+        btnEnviarCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnEnviarCorreoActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1234, 550, 130, -1));
+        jPanel2.add(btnEnviarCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1234, 550, 130, -1));
 
         btnCancelar.setBackground(new java.awt.Color(204, 0, 0));
         btnCancelar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -123,9 +128,42 @@ public class VistaDesCorreo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnEnviarCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarCorreoActionPerformed
+        String asunto=jtAsunto.getText();
+        String descripcion=jtDescrip.getText();
+        
+        String idU= txtIdU.getText();
+        String idF=txtFila.getText();
+        
+        String correoEmisor="";
+        String correoReceptor="";
+        String contraseñaCorreo="";
+        
+        
+        EnviarCorreoDao enCoDao = new EnviarCorreoDao();
+        
+        
+        List<Asesor>lista=enCoDao.correoE(idU);
+            List<Contacto>listaC=enCoDao.correoR(idF);
+            
+            for(int i=0;i<lista.size();i++){
+                correoEmisor= lista.get(i).getCorreo();
+                contraseñaCorreo= lista.get(i).getContraseña();
+                
+            }
+            for(int i=0;i<listaC.size();i++){
+                correoReceptor= listaC.get(i).getCorreo();
+            }
+            System.out.println(correoEmisor);
+            System.out.println(correoReceptor);
+            System.out.println(contraseñaCorreo);
+            
+        ControladorVistaDesCorreo ctrlDesCorreo= new ControladorVistaDesCorreo();
+        ctrlDesCorreo.enviarCorreo(asunto, descripcion,correoEmisor,correoReceptor,contraseñaCorreo);
+        
+        jtAsunto.setText("");
+        jtDescrip.setText("");
+    }//GEN-LAST:event_btnEnviarCorreoActionPerformed
 
     private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
          int input = JOptionPane.showConfirmDialog(null, "SE VA A CERRAR LA SESION", "CERRAR SESION",
@@ -185,8 +223,8 @@ public class VistaDesCorreo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnCancelar;
+    public javax.swing.JButton btnEnviarCorreo;
     private javax.swing.JLabel btnSalir;
-    public javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

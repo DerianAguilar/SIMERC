@@ -45,6 +45,8 @@ public class vistaLogin extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JLabel();
         pCancelar = new javax.swing.JPanel();
         btnCancelar = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jtConCorreo = new javax.swing.JTextField();
         pValAdmin = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -109,17 +111,17 @@ public class vistaLogin extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Contraseña:");
         ventanaRegistrar.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 348, -1, -1));
-        ventanaRegistrar.add(jtDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 140, 270, -1));
-        ventanaRegistrar.add(jtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 190, 270, -1));
+        ventanaRegistrar.add(jtDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 270, -1));
+        ventanaRegistrar.add(jtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 270, -1));
 
         jtApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtApellidoActionPerformed(evt);
             }
         });
-        ventanaRegistrar.add(jtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 243, 270, -1));
-        ventanaRegistrar.add(jtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 294, 270, -1));
-        ventanaRegistrar.add(jtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 344, 270, -1));
+        ventanaRegistrar.add(jtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 270, -1));
+        ventanaRegistrar.add(jtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 270, -1));
+        ventanaRegistrar.add(jtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, 270, -1));
 
         pGuardar.setBackground(new java.awt.Color(0, 204, 0));
 
@@ -178,6 +180,12 @@ public class vistaLogin extends javax.swing.JFrame {
         );
 
         ventanaRegistrar.add(pCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 560, -1, -1));
+
+        jLabel13.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel13.setText("Contraseñ del correo:");
+        ventanaRegistrar.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 220, -1));
+        ventanaRegistrar.add(jtConCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 390, 270, -1));
 
         getContentPane().add(ventanaRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 650));
 
@@ -578,6 +586,7 @@ public class vistaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -589,6 +598,7 @@ public class vistaLogin extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     public javax.swing.JTextField jtApellido;
+    public javax.swing.JTextField jtConCorreo;
     public javax.swing.JTextField jtContraseña;
     public javax.swing.JTextField jtCorreo;
     public javax.swing.JTextField jtDocumento;

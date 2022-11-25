@@ -19,7 +19,7 @@ public class InicioRegistroDao extends conexion {
 
         Connection con = getConection();
         PreparedStatement ps;
-        String sql = "INSERT INTO asesor (documento,nombre,apellido,correo,password,rol) VALUES (?,?,?,?,?,?)";
+        String sql = "INSERT INTO asesor (documento,nombre,apellido,correo,password,rol,passCorreo) VALUES (?,?,?,?,?,?,?)";
 
         String rol = "user";
         try {
@@ -30,6 +30,7 @@ public class InicioRegistroDao extends conexion {
             ps.setString(4, as.getCorreo());
             ps.setString(5, as.getPassword());
             ps.setString(6, rol);
+            ps.setString(7, as.getContraseña());
             ps.execute();
             return true;
 

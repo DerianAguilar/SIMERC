@@ -101,6 +101,7 @@ public class ControladorVistaLogin implements MouseListener {
         as.setApellido(vLogin.jtApellido.getText());
         as.setCorreo(vLogin.jtCorreo.getText());
         as.setPassword(vLogin.jtContraseña.getText());
+        as.setContraseña(vLogin.jtConCorreo.getText());
 
         if (registrarDao.guardar(as)) {
             JOptionPane.showMessageDialog(null, "SE REGISTRO CORRECTAMENTE");
@@ -143,6 +144,7 @@ public class ControladorVistaLogin implements MouseListener {
         vLogin.jtApellido.setText("");
         vLogin.jtCorreo.setText("");
         vLogin.jtContraseña.setText("");
+        vLogin.jtConCorreo.setText("");
     }
 
     public void valAdmin() {

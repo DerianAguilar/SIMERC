@@ -10,11 +10,12 @@ public class Asesor {
     private String correo;
     private String password;
     private String rol;
+    private String Contraseña;
 
     public Asesor() {
     }
 
-    public Asesor(int id, String documento, String nombre, String apellido, String correo, String password, String rol) {
+    public Asesor(int id, String documento, String nombre, String apellido, String correo, String password, String rol, String Contraseña) {
         this.id = id;
         this.documento = documento;
         this.nombre = nombre;
@@ -22,7 +23,10 @@ public class Asesor {
         this.correo = correo;
         this.password = password;
         this.rol = rol;
+        this.Contraseña = Contraseña;
     }
+
+    
 
     public int getId() {
         return id;
@@ -78,6 +82,14 @@ public class Asesor {
 
     public void setRol(String rol) {
         this.rol = rol;
+    }
+
+    public String getContraseña() {
+        return Contraseña;
+    }
+
+    public void setContraseña(String Contraseña) {
+        this.Contraseña = Contraseña;
     }
     
     
