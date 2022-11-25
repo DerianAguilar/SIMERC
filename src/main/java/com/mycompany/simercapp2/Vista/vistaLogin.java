@@ -111,16 +111,30 @@ public class vistaLogin extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Contraseña:");
         ventanaRegistrar.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 348, -1, -1));
+
+        jtDocumento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jtDocumento.setForeground(new java.awt.Color(0, 0, 0));
         ventanaRegistrar.add(jtDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 270, -1));
+
+        jtNombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jtNombre.setForeground(new java.awt.Color(0, 0, 0));
         ventanaRegistrar.add(jtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 270, -1));
 
+        jtApellido.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jtApellido.setForeground(new java.awt.Color(0, 0, 0));
         jtApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtApellidoActionPerformed(evt);
             }
         });
         ventanaRegistrar.add(jtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 270, -1));
+
+        jtCorreo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jtCorreo.setForeground(new java.awt.Color(0, 0, 0));
         ventanaRegistrar.add(jtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 270, -1));
+
+        jtContraseña.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jtContraseña.setForeground(new java.awt.Color(0, 0, 0));
         ventanaRegistrar.add(jtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, 270, -1));
 
         pGuardar.setBackground(new java.awt.Color(0, 204, 0));
@@ -183,8 +197,11 @@ public class vistaLogin extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel13.setText("Contraseñ del correo:");
+        jLabel13.setText("Contraseña del correo:");
         ventanaRegistrar.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 220, -1));
+
+        jtConCorreo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jtConCorreo.setForeground(new java.awt.Color(0, 0, 0));
         ventanaRegistrar.add(jtConCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 390, 270, -1));
 
         getContentPane().add(ventanaRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 650));

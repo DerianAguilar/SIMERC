@@ -11,7 +11,9 @@ import javax.mail.Message;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import javax.swing.JOptionPane;
 
 public class ControladorVistaDesCorreo {
@@ -48,7 +50,7 @@ public class ControladorVistaDesCorreo {
 
     }
 
-    public void enviarCorreo(String asunto, String descripcion,String correoEmisor,String correoReceptor,String contraseñaCorreo) {
+    public void enviarCorreo(String asunto, MimeMultipart descripcion,String correoEmisor,String correoReceptor,String contraseñaCorreo) {
         
 
         
@@ -73,11 +75,11 @@ public class ControladorVistaDesCorreo {
                 mail.setFrom(new InternetAddress(correoEmisor));
                 mail.addRecipients(Message.RecipientType.TO, correoReceptor);
                 mail.setSubject(asunto);
-                mail.setText(descripcion);
+                mail.setContent(descripcion);
 
                 Transport transporte = sesion.getTransport("smtp");
                 transporte.connect(correoEmisor, contraseñaCorreo);
-                transporte.sendMessage(mail, mail.getRecipients(Message.RecipientType.TO));
+                transporte.sendMessage(mail, mail.getAllRecipients());
                 transporte.close();
 
                 
@@ -85,6 +87,10 @@ public class ControladorVistaDesCorreo {
                 JOptionPane.showMessageDialog(null, "Error al enviar el correo " + ex);
             }
 
+        
+    }
+    
+    public void encorreoP(){
         
     }
 

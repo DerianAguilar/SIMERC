@@ -11,8 +11,15 @@ import com.mycompany.simercapp2.Controlador.ControladorVistaLogin;
 import com.mycompany.simercapp2.Dao.EnviarCorreoDao;
 import com.mycompany.simercapp2.Modelo.Asesor;
 import com.mycompany.simercapp2.Modelo.Contacto;
-import java.awt.Font;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.activation.DataHandler;
+import javax.activation.FileDataSource;
+import javax.mail.BodyPart;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMultipart;
 import javax.swing.JOptionPane;
 
 /**
@@ -82,7 +89,11 @@ public class VistaDesCorreo extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("ENVIAR CORREO");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(475, 6, 448, -1));
+
+        txtIdU.setEnabled(false);
         jPanel2.add(txtIdU, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 143, -1, -1));
+
+        txtFila.setEnabled(false);
         jPanel2.add(txtFila, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 184, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
@@ -145,6 +156,7 @@ public class VistaDesCorreo extends javax.swing.JFrame {
         if (c == 0) {
             EnviarCorreoDao enCoDao = new EnviarCorreoDao();
             List<Asesor> lista = enCoDao.correoE(idU);
+            MimeMultipart partes = new MimeMultipart();
             if (idF.equals("todos")) {
 
                 for (int i = 0; i < lista.size(); i++) {
@@ -155,35 +167,61 @@ public class VistaDesCorreo extends javax.swing.JFrame {
 
                 List<Contacto> listaC = enCoDao.correoTodos();
                 for (int i = 0; i < listaC.size(); i++) {
-                    String nombre="";
+                    String nombre = "";
+                    BodyPart texto = new MimeBodyPart();
+                    BodyPart archivo = new MimeBodyPart();
                     correoReceptor = listaC.get(i).getCorreo();
-                    nombre= listaC.get(i).getNombre();
-                    String mensaje = "HOLA "+nombre+"\n\n\n"+descripcion;
+                    nombre = listaC.get(i).getNombre();
+                    String mensaje = "HOLA <b>" + nombre + "</b>\n\n\n" + descripcion;
                     System.out.println(mensaje);
+                    try {
+                        texto.setContent(mensaje, "html/text");
+                        archivo.setDataHandler(new DataHandler(new FileDataSource("C:\\Users\\Ryzen\\Pictures\\roa.jpg")));
+
+                        partes.addBodyPart(texto);
+                        partes.addBodyPart(archivo);
+
+                    } catch (MessagingException ex) {
+                        Logger.getLogger(VistaDesCorreo.class.getName()).log(Level.SEVERE, null, ex);
+                    }
 
                     ControladorVistaDesCorreo ctrlDesCorreo = new ControladorVistaDesCorreo();
-                    ctrlDesCorreo.enviarCorreo(asunto, mensaje, correoEmisor, correoReceptor, contraseñaCorreo);
+                    ctrlDesCorreo.enviarCorreo(asunto, partes, correoEmisor, correoReceptor, contraseñaCorreo);
                     System.out.println(correoReceptor);
                 }
                 JOptionPane.showMessageDialog(null, "Correo enviado");
 
             } else {
                 List<Contacto> listaC = enCoDao.correoR(idF);
-                String mensaje="";
+                String mensaje = "";
+                
                 for (int i = 0; i < lista.size(); i++) {
                     correoEmisor = lista.get(i).getCorreo();
                     contraseñaCorreo = lista.get(i).getContraseña();
 
                 }
                 for (int i = 0; i < listaC.size(); i++) {
-                    String nombre="";
+                    String nombre = "";
                     correoReceptor = listaC.get(i).getCorreo();
-                    nombre= listaC.get(i).getNombre();
-                    mensaje = "HOLA "+nombre+"\n\n\n"+descripcion;
-                    System.out.println(mensaje);
+                    nombre = listaC.get(i).getNombre();
+                    mensaje = "HOLA <b>" + nombre + "</b><br><br>" + descripcion;
+                    BodyPart texto = new MimeBodyPart();
+                    BodyPart archivo = new MimeBodyPart();
+                    try {
+                        texto.setContent(mensaje, "text/html");
+                        archivo.setDataHandler(new DataHandler(new FileDataSource("C:\\Users\\Ryzen\\Pictures\\roa.jpg")));
+
+                        partes.addBodyPart(texto);
+                        partes.addBodyPart(archivo);
+
+                    } catch (MessagingException ex) {
+                        Logger.getLogger(VistaDesCorreo.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    ControladorVistaDesCorreo ctrlDesCorreo = new ControladorVistaDesCorreo();
+                    ctrlDesCorreo.enviarCorreo(asunto, partes, correoEmisor, correoReceptor, contraseñaCorreo);
+                    System.out.println(texto);
                 }
-                ControladorVistaDesCorreo ctrlDesCorreo = new ControladorVistaDesCorreo();
-                ctrlDesCorreo.enviarCorreo(asunto, mensaje, correoEmisor, correoReceptor, contraseñaCorreo);
+
                 JOptionPane.showMessageDialog(null, "Correo enviado");
             }
         }
