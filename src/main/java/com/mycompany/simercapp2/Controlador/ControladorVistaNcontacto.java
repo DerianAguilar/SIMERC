@@ -56,6 +56,9 @@ public class ControladorVistaNcontacto implements ActionListener{
         vNcot.jtDireccion.setText(null);
         vNcot.jtTelefono.setText(null);
         vNcot.jtCorreo.setText(null);
+        vNcot.cmbModalidad.setSelectedIndex(0);
+        vNcot.cmbTipoDocumento.setSelectedIndex(0);
+        vNcot.cmbPrograma.setSelectedIndex(0);
     }
 
     public void guardar() {

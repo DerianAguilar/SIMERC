@@ -11,6 +11,7 @@ import com.mycompany.simercapp2.Controlador.ControladorVistaLogin;
 import com.mycompany.simercapp2.Dao.EnviarCorreoDao;
 import com.mycompany.simercapp2.Modelo.Asesor;
 import com.mycompany.simercapp2.Modelo.Contacto;
+import java.io.File;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,7 +21,9 @@ import javax.mail.BodyPart;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMultipart;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -58,6 +61,12 @@ public class VistaDesCorreo extends javax.swing.JFrame {
         jtDescrip = new javax.swing.JTextArea();
         btnEnviarCorreo = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        cmbPrograma = new javax.swing.JComboBox<>();
+        txtP = new javax.swing.JLabel();
+        txtRuta = new javax.swing.JTextField();
+        btnRuta = new javax.swing.JButton();
+        cmbPlan = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -100,6 +109,9 @@ public class VistaDesCorreo extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("ASUNTO:");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, -1, -1));
+
+        jtAsunto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jtAsunto.setForeground(new java.awt.Color(0, 0, 0));
         jPanel2.add(jtAsunto, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, 610, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
@@ -108,6 +120,8 @@ public class VistaDesCorreo extends javax.swing.JFrame {
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, -1, -1));
 
         jtDescrip.setColumns(20);
+        jtDescrip.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jtDescrip.setForeground(new java.awt.Color(0, 0, 0));
         jtDescrip.setRows(5);
         jScrollPane1.setViewportView(jtDescrip);
 
@@ -135,6 +149,41 @@ public class VistaDesCorreo extends javax.swing.JFrame {
         });
         jPanel2.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1084, 550, 130, -1));
 
+        cmbPrograma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PROGRAMA", "INGENIERIA DE SOFTWARE", "DISEÑO GRAFICO", "DISEÑO DE MODAS", "ADMINISTRACION FINANCIERA", "NEGOCIOS INTERNACIONALES", "LOGISTICA EMPRESARIAL", "HOTELERIA Y TURISMO" }));
+        jPanel2.add(cmbPrograma, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 250, -1));
+
+        txtP.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        txtP.setForeground(new java.awt.Color(0, 0, 0));
+        txtP.setText("TODOS:");
+        jPanel2.add(txtP, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+
+        txtRuta.setEnabled(false);
+        jPanel2.add(txtRuta, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 470, 300, -1));
+
+        btnRuta.setForeground(new java.awt.Color(0, 0, 0));
+        btnRuta.setText(".....");
+        btnRuta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRutaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnRuta, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 470, 70, -1));
+
+        cmbPlan.setBackground(new java.awt.Color(204, 255, 255));
+        cmbPlan.setForeground(new java.awt.Color(0, 0, 0));
+        cmbPlan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No", "Si" }));
+        cmbPlan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbPlanActionPerformed(evt);
+            }
+        });
+        jPanel2.add(cmbPlan, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 150, 110, -1));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("PLANTILLA:");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 150, -1, -1));
+
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 1500, 630));
 
         pack();
@@ -143,7 +192,10 @@ public class VistaDesCorreo extends javax.swing.JFrame {
     private void btnEnviarCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarCorreoActionPerformed
         String asunto = jtAsunto.getText();
         String descripcion = jtDescrip.getText();
-
+        String plan = cmbPlan.getSelectedItem().toString();
+        String prgm= cmbPrograma.getSelectedItem().toString();
+        String ruta = txtRuta.getText();
+        
         String idU = txtIdU.getText();
         String idF = txtFila.getText();
 
@@ -156,7 +208,7 @@ public class VistaDesCorreo extends javax.swing.JFrame {
         if (c == 0) {
             EnviarCorreoDao enCoDao = new EnviarCorreoDao();
             List<Asesor> lista = enCoDao.correoE(idU);
-            MimeMultipart partes = new MimeMultipart();
+            
             if (idF.equals("todos")) {
 
                 for (int i = 0; i < lista.size(); i++) {
@@ -165,18 +217,25 @@ public class VistaDesCorreo extends javax.swing.JFrame {
 
                 }
 
-                List<Contacto> listaC = enCoDao.correoTodos();
+                List<Contacto> listaC = enCoDao.correoTodos(prgm);
+
+                String mensaje = "";
+                int cont = 0;
+                int nEl = listaC.size();
+                String nombre = "";
                 for (int i = 0; i < listaC.size(); i++) {
-                    String nombre = "";
-                    BodyPart texto = new MimeBodyPart();
-                    BodyPart archivo = new MimeBodyPart();
+                    MimeMultipart partes = new MimeMultipart();
+
                     correoReceptor = listaC.get(i).getCorreo();
                     nombre = listaC.get(i).getNombre();
-                    String mensaje = "HOLA <b>" + nombre + "</b>\n\n\n" + descripcion;
+                    mensaje = "HOLA <b>" + nombre + "</b><br><br><br>" + descripcion + "<br><br>";
+                    BodyPart archivo = new MimeBodyPart();
+                    BodyPart texto = new MimeBodyPart();
                     System.out.println(mensaje);
+
                     try {
-                        texto.setContent(mensaje, "html/text");
-                        archivo.setDataHandler(new DataHandler(new FileDataSource("C:\\Users\\Ryzen\\Pictures\\roa.jpg")));
+                        texto.setContent(mensaje, "text/html");
+                        archivo.setDataHandler(new DataHandler(new FileDataSource(ruta)));
 
                         partes.addBodyPart(texto);
                         partes.addBodyPart(archivo);
@@ -186,8 +245,12 @@ public class VistaDesCorreo extends javax.swing.JFrame {
                     }
 
                     ControladorVistaDesCorreo ctrlDesCorreo = new ControladorVistaDesCorreo();
-                    ctrlDesCorreo.enviarCorreo(asunto, partes, correoEmisor, correoReceptor, contraseñaCorreo);
+                    ctrlDesCorreo.enviarCorreo(asunto, partes, correoEmisor, correoReceptor, contraseñaCorreo,plan,mensaje);
                     System.out.println(correoReceptor);
+                    nombre = "";
+                    mensaje="";
+                    //cont+=1;
+                    //JOptionPane.showMessageDialog(null, "Enviando....."+cont+" de "+nEl+".\n\n Espere por favor");
                 }
                 JOptionPane.showMessageDialog(null, "Correo enviado");
 
@@ -202,14 +265,15 @@ public class VistaDesCorreo extends javax.swing.JFrame {
                 }
                 for (int i = 0; i < listaC.size(); i++) {
                     String nombre = "";
+                    MimeMultipart partes = new MimeMultipart();
                     correoReceptor = listaC.get(i).getCorreo();
                     nombre = listaC.get(i).getNombre();
-                    mensaje = "HOLA <b>" + nombre + "</b><br><br>" + descripcion;
+                    mensaje = "HOLA <b>" + nombre + "</b><br><br>" + descripcion+"<br><br>";
                     BodyPart texto = new MimeBodyPart();
                     BodyPart archivo = new MimeBodyPart();
                     try {
                         texto.setContent(mensaje, "text/html");
-                        archivo.setDataHandler(new DataHandler(new FileDataSource("C:\\Users\\Ryzen\\Pictures\\roa.jpg")));
+                        archivo.setDataHandler(new DataHandler(new FileDataSource(ruta)));
 
                         partes.addBodyPart(texto);
                         partes.addBodyPart(archivo);
@@ -218,7 +282,7 @@ public class VistaDesCorreo extends javax.swing.JFrame {
                         Logger.getLogger(VistaDesCorreo.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     ControladorVistaDesCorreo ctrlDesCorreo = new ControladorVistaDesCorreo();
-                    ctrlDesCorreo.enviarCorreo(asunto, partes, correoEmisor, correoReceptor, contraseñaCorreo);
+                    ctrlDesCorreo.enviarCorreo(asunto, partes, correoEmisor, correoReceptor, contraseñaCorreo,plan,mensaje);
                     System.out.println(texto);
                 }
 
@@ -228,6 +292,8 @@ public class VistaDesCorreo extends javax.swing.JFrame {
 
         jtAsunto.setText("");
         jtDescrip.setText("");
+        cmbPlan.setSelectedIndex(0);
+        cmbPrograma.setSelectedIndex(0);
     }//GEN-LAST:event_btnEnviarCorreoActionPerformed
 
     private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
@@ -250,6 +316,39 @@ public class VistaDesCorreo extends javax.swing.JFrame {
         ctrEnCorreo.mostrar(idU);
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void cmbPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbPlanActionPerformed
+        String plan = cmbPlan.getSelectedItem().toString();
+        System.out.println(plan);
+        if(plan.equals("No")){
+            btnRuta.setVisible(false);
+            txtRuta.setVisible(false);
+        }else{
+            btnRuta.setVisible(true);
+            txtRuta.setVisible(true);
+        }
+    }//GEN-LAST:event_cmbPlanActionPerformed
+
+    private void btnRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRutaActionPerformed
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+
+        FileNameExtensionFilter texFilter = new FileNameExtensionFilter("archivos(*.txt)", "txt");
+        fileChooser.setFileFilter(texFilter);
+
+        int result = fileChooser.showOpenDialog(this);
+
+        if (result != JFileChooser.CANCEL_OPTION) {
+
+            File fileName = fileChooser.getSelectedFile();
+
+            if ((fileName == null) || (fileName.getName().equals(""))) {
+                txtRuta.setText("...");
+            } else {
+                txtRuta.setText(fileName.getAbsolutePath());
+            }
+        }
+    }//GEN-LAST:event_btnRutaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -289,11 +388,15 @@ public class VistaDesCorreo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnCancelar;
     public javax.swing.JButton btnEnviarCorreo;
+    public javax.swing.JButton btnRuta;
     private javax.swing.JLabel btnSalir;
+    public javax.swing.JComboBox<String> cmbPlan;
+    public javax.swing.JComboBox<String> cmbPrograma;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -301,5 +404,7 @@ public class VistaDesCorreo extends javax.swing.JFrame {
     public javax.swing.JTextArea jtDescrip;
     public javax.swing.JTextField txtFila;
     public javax.swing.JTextField txtIdU;
+    public javax.swing.JLabel txtP;
+    public javax.swing.JTextField txtRuta;
     // End of variables declaration//GEN-END:variables
 }

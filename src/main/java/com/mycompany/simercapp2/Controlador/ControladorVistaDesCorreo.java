@@ -47,10 +47,19 @@ public class ControladorVistaDesCorreo {
         vdc.setVisible(true);
         vdc.txtIdU.setText(idU);
         vdc.txtFila.setText(idFila);
+        vdc.btnRuta.setVisible(false);
+        vdc.txtRuta.setVisible(false);
+        if (vdc.txtFila.getText().equals("todos")) {
+            vdc.cmbPrograma.setVisible(true);
+            vdc.txtP.setVisible(true);
+        } else {
+            vdc.cmbPrograma.setVisible(false);
+            vdc.txtP.setVisible(false);
 
+        }
     }
 
-    public void enviarCorreo(String asunto, MimeMultipart descripcion,String correoEmisor,String correoReceptor,String contraseñaCorreo) {
+    public void enviarCorreo(String asunto, MimeMultipart mp,String correoEmisor,String correoReceptor,String contraseñaCorreo,String adj,String mensaje) {
         
 
         
@@ -75,7 +84,11 @@ public class ControladorVistaDesCorreo {
                 mail.setFrom(new InternetAddress(correoEmisor));
                 mail.addRecipients(Message.RecipientType.TO, correoReceptor);
                 mail.setSubject(asunto);
-                mail.setContent(descripcion);
+                if(adj.equals("Si")){
+                mail.setContent(mp);
+                }else{
+                mail.setText(mensaje, "ISO-8859-1", "html");
+                }
 
                 Transport transporte = sesion.getTransport("smtp");
                 transporte.connect(correoEmisor, contraseñaCorreo);

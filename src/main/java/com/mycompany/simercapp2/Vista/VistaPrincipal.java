@@ -8,7 +8,14 @@ package com.mycompany.simercapp2.Vista;
 import com.mycompany.simercapp2.Controlador.ControladorVistaEnCorreo;
 import com.mycompany.simercapp2.Controlador.ControladorVistaLogin;
 import com.mycompany.simercapp2.Controlador.ControladorVistaNcontacto;
+import com.mycompany.simercapp2.Controlador.ControladorVistaPrincipal;
 import com.mycompany.simercapp2.Controlador.ControladorVistaSeguimiento;
+import com.mycompany.simercapp2.Dao.RecordatorioDao;
+import com.mycompany.simercapp2.Modelo.Nota;
+import java.time.LocalDate;
+import java.util.List;
+
+
 import javax.swing.JOptionPane;
 
 /**
@@ -20,8 +27,12 @@ public class VistaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form VistaPrincipal
      */
+    private int posL=0;
     public VistaPrincipal() {
         initComponents();
+        txtDesc.setLineWrap(true);
+        txtDesc.setWrapStyleWord(true);
+        
     }
 
     /**
@@ -46,6 +57,13 @@ public class VistaPrincipal extends javax.swing.JFrame {
         pEnCorreo = new javax.swing.JPanel();
         btnCorreo = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        txtTitulo = new javax.swing.JLabel();
+        btnA = new javax.swing.JLabel();
+        btnS = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtDesc = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -169,7 +187,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 654, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(245, 245, 245))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -197,22 +215,65 @@ public class VistaPrincipal extends javax.swing.JFrame {
                 .addGap(191, 191, 191))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 1150, 600));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 1120, 600));
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 204));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 153));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+        jPanel6.setBackground(new java.awt.Color(204, 0, 0));
+
+        jLabel4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("RECORDATORIO");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 180, 350, 600));
+        jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 370, 50));
+
+        txtTitulo.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        txtTitulo.setForeground(new java.awt.Color(0, 0, 0));
+        txtTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel3.add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 101, 370, 43));
+
+        btnA.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ryzen\\simercApp2\\src\\main\\java\\com\\mycompany\\simercapp2\\Imagen\\flechaAtras.png")); // NOI18N
+        btnA.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnA.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAMouseClicked(evt);
+            }
+        });
+        jPanel3.add(btnA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, -1, -1));
+
+        btnS.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ryzen\\simercApp2\\src\\main\\java\\com\\mycompany\\simercapp2\\Imagen\\fechaSig.png")); // NOI18N
+        btnS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSMouseClicked(evt);
+            }
+        });
+        jPanel3.add(btnS, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, -1, 30));
+
+        txtDesc.setBackground(new java.awt.Color(255, 255, 204));
+        txtDesc.setColumns(20);
+        txtDesc.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        txtDesc.setForeground(new java.awt.Color(0, 0, 0));
+        txtDesc.setRows(5);
+        txtDesc.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jScrollPane1.setViewportView(txtDesc);
+
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 330, 351));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 180, 380, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -260,6 +321,64 @@ public class VistaPrincipal extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnCorreoMouseClicked
 
+    private void btnSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSMouseClicked
+        posL+=1;
+        int id= Integer.parseInt(txtIdU.getText());
+        System.out.println(id);
+        String titulo= "";
+        String desc="";
+        RecordatorioDao rDao= new RecordatorioDao();
+        LocalDate fecha = LocalDate.now();
+        String fech = String.valueOf(fecha);
+        List<Nota> lista = rDao.recordatorio(id, fech);
+        
+        for(int i=0; i<lista.size();i++){
+            titulo= lista.get(posL).getTitulo();
+            desc= lista.get(posL).getDescripcion();
+        }
+        int num = lista.size();
+        System.out.println(num);
+        num-=1;
+        txtTitulo.setText(titulo);
+        txtDesc.setText(desc);
+        
+        btnA.setVisible(true);
+        
+        if(posL==num){
+            btnS.setVisible(false);
+        }else{
+            btnS.setVisible(true);
+        }
+    }//GEN-LAST:event_btnSMouseClicked
+
+    private void btnAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAMouseClicked
+        posL-=1;
+        int id= Integer.parseInt(txtIdU.getText());
+        System.out.println(id);
+        String titulo= "";
+        String desc="";
+        RecordatorioDao rDao= new RecordatorioDao();
+        LocalDate fecha = LocalDate.now();
+        String fech = String.valueOf(fecha);
+        List<Nota> lista = rDao.recordatorio(id, fech);
+        
+        for(int i=0; i<lista.size();i++){
+            titulo= lista.get(posL).getTitulo();
+            desc= lista.get(posL).getDescripcion();
+        }
+        txtTitulo.setText(titulo);
+        txtDesc.setText(desc);
+        
+        btnS.setVisible(true);
+        
+        if(posL==0){
+            btnA.setVisible(false);
+        }else{
+            btnA.setVisible(true);
+        }
+    }//GEN-LAST:event_btnAMouseClicked
+
+    
     /**
      * @param args the command line arguments
      */
@@ -296,18 +415,25 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JLabel btnA;
     private javax.swing.JLabel btnCorreo;
     public javax.swing.JLabel btnNcontacto;
+    public javax.swing.JLabel btnS;
     public javax.swing.JLabel btnSeguimiento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel pEnCorreo;
+    public javax.swing.JTextArea txtDesc;
     public javax.swing.JTextField txtIdU;
+    public javax.swing.JLabel txtTitulo;
     // End of variables declaration//GEN-END:variables
 }

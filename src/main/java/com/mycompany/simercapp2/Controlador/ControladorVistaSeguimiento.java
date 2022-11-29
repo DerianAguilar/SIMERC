@@ -79,33 +79,20 @@ public class ControladorVistaSeguimiento implements ActionListener {
             modelo.addColumn("DOCUMENTO");
             modelo.addColumn("NOMBRE");
             modelo.addColumn("APELLIDO");
-            modelo.addColumn("NACIONALIDAD");
-            modelo.addColumn("CORREO");
-            modelo.addColumn("TELEFONO");
-            modelo.addColumn("COLEGIO");
-            modelo.addColumn("DIRECCION");
+            modelo.addColumn("PROGRAMA");
             modelo.addColumn("MODALIDAD");
-            modelo.addColumn("ASESOR");
-            modelo.addColumn("Nombre");
-            modelo.addColumn("Apellido");
+           
             vSeguimiento.tContacto.setModel(modelo);
             
-            Object[] object = new Object[14];
+            Object[] object = new Object[7];
             for (int i = 0; i < lista.size(); i++) {
                 object[0] = lista.get(i).getId();
                 object[1] = lista.get(i).getTipoDocumento();
                 object[2] = lista.get(i).getDocumento();
                 object[3] = lista.get(i).getNombre();
                 object[4] = lista.get(i).getApellido();
-                object[5] = lista.get(i).getNacionalidad();
-                object[6] = lista.get(i).getCorreo();
-                object[7] = lista.get(i).getTelefono();
-                object[8] = lista.get(i).getColegio();
-                object[9] = lista.get(i).getDireccion();
-                object[10] = lista.get(i).getModalidad();
-                object[11] = lista.get(i).getAsesor();
-                object[12] = lista.get(i).getnAs();
-                object[13] = lista.get(i).getApAs();
+                object[5] = lista.get(i).getPrograma();
+                object[6] = lista.get(i).getModalidad();
                 modelo.addRow(object);
             }
             vSeguimiento.tContacto.setModel(modelo);

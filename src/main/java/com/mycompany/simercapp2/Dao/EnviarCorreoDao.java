@@ -79,13 +79,13 @@ public class EnviarCorreoDao extends conexion{
         
     }
     
-    public List correoTodos(){
+    public List correoTodos(String prog){
         Connection con = getConection();
         PreparedStatement ps=null;
         ResultSet rs;
         
         List<Contacto>datos= new ArrayList<>();
-        String sql = "SELECT correo,UPPER(nombre) FROM contacto";
+        String sql = "SELECT correo,UPPER(nombre) FROM contacto WHERE programa='"+prog+"'";
         try{
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();

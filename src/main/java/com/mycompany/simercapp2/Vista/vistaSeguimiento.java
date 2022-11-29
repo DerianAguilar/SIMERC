@@ -5,10 +5,10 @@
  */
 package com.mycompany.simercapp2.Vista;
 
+import com.mycompany.simercapp2.Controlador.ControladorVistaDetalle;
 import com.mycompany.simercapp2.Controlador.ControladorVistaLogin;
 import com.mycompany.simercapp2.Controlador.ControladorVistaPrincipal;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -203,11 +203,13 @@ public class vistaSeguimiento extends javax.swing.JFrame {
         int input = JOptionPane.showConfirmDialog(null, "SE VA A CERRAR LA SESION", "CERRAR SESION",
 				JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
         
+        
         if(input == 0){
             ControladorVistaLogin ctrLogin= new ControladorVistaLogin();
             this.dispose();
             ctrLogin.iniciar();
         }
+        
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void btnBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnBuscarKeyPressed
@@ -218,11 +220,18 @@ public class vistaSeguimiento extends javax.swing.JFrame {
     private void tContactoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tContactoMouseClicked
         int fila=tContacto.getSelectedRow();
         System.out.println(fila);
+        ;
         if(fila>=0){
             String id=(String)tContacto.getValueAt(fila,0).toString();
             jtVer.setText(id);
             System.out.println(id);
         }
+        
+        
+        
+        ControladorVistaDetalle ctrVistaDetalle= new ControladorVistaDetalle();
+        ctrVistaDetalle.mostrar(jtVer.getText());
+        this.dispose();
     }//GEN-LAST:event_tContactoMouseClicked
 
     /**
