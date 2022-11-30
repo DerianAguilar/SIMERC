@@ -92,28 +92,7 @@ public class ControladorVistaSeguimiento implements ActionListener {
         }        
     }
     
-    public void ver(JTable tabla,int id) {
-        
-        
-        
-        List<RegContacto> lista = segDao.ver(id);
-        DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("ID");
-        modelo.addColumn("MEDIO");
-        modelo.addColumn("DESCRIPCION");
-        modelo.addColumn("FECHA");
-        vDetalle.tHistorial.setModel(modelo);
-        
-        Object[] object = new Object[4];
-        for (int i = 0; i < lista.size(); i++) {
-            object[0] = lista.get(i).getId();
-            object[1] = lista.get(i).getMedio();
-            object[2] = lista.get(i).getDescripcion();
-            object[3] = lista.get(i).getFecha();
-            modelo.addRow(object);
-            
-        }
-    }
+    
     
     public void ocultar() {
         vSeguimiento.setVisible(false);

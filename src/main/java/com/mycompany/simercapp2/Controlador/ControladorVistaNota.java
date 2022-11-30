@@ -54,6 +54,10 @@ public class ControladorVistaNota implements ActionListener{
             JOptionPane.showMessageDialog(null, "NO SE GUARDO LA NOTA ");
         }
         
+        vN.jtTitulo.setText("");
+        vN.jtdescripcion.setText("");
+        vN.fecha.setCalendar(null);
+        
         
     }
 }

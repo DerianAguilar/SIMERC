@@ -65,25 +65,7 @@ public class ControladorVistaPrincipal {
             vPrincipal.btnS.setVisible(false);
         }
     }
-    public void desc(int p){
-        int id= Integer.parseInt(vPrincipal.txtIdU.getText());
-        System.out.println(id);
-        String titulo= "";
-        String desc="";
-        LocalDate fecha = LocalDate.now();
-        String fech = String.valueOf(fecha);
-        List<Nota> lista = rDao.recordatorio(id, fech);
-        
-        for(int i=0; i<lista.size();i++){
-            titulo= lista.get(p).getTitulo();
-            desc= lista.get(p).getDescripcion();
-            
-            
-        }
-        vPrincipal.txtTitulo.setText(titulo);
-        vPrincipal.txtDesc.setText(desc);
-        
-    }
+    
     
     
 }

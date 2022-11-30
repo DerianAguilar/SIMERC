@@ -25,13 +25,7 @@ public class ControladorVistaDesCorreo {
     private String idU;
     private String idFila;
 
-    //variables envio de correo
-    /*private String correoEmisor = "15derianaguilar@gmail.com";
-    private String correoReceptor="15derianaguilar@gmail.com";
-    private String asunto;
-    private String descripcion;
-    private String contraseñaCorreo="lwazrnecoggosbwx";
-     */
+    
     public ControladorVistaDesCorreo() {
         this.vdc = new VistaDesCorreo();
         this.enCoDao= new EnviarCorreoDao();
@@ -103,8 +97,5 @@ public class ControladorVistaDesCorreo {
         
     }
     
-    public void encorreoP(){
-        
-    }
-
+    
 }

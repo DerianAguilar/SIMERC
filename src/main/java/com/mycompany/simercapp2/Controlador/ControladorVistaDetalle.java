@@ -64,29 +64,6 @@ public class ControladorVistaDetalle {
         
         
     }
-    public void guardar(int id){
-        
-        
-        cot.setTipoDocumento(vD.txtTd.getText());
-        cot.setDocumento(vD.txtDocument.getText());
-        cot.setNombre(vD.txtNombre.getText());
-        cot.setApellido(vD.txtApellido.getText());
-        cot.setNacionalidad(vD.txtNacionalidad.getText());
-        cot.setCorreo(vD.txtCorreo.getText());
-        cot.setTelefono(vD.txtTelefono.getText());
-        cot.setDireccion(vD.txtDireccion.getText());
-        cot.setPrograma(vD.txtPrograma.getText());
-        cot.setModalidad(vD.txtModalidad.getText());
-        cot.setObservaciones(vD.txtObservaciones.getText());
-        cot.setColegio(vD.txtColegio.getText());
-        cot.setId(id);
-        
-        if(dDao.actualizar(cot)){
-            JOptionPane.showMessageDialog(null, "SE ACTUALIZARON LOS DATOS");
-        }else{
-            JOptionPane.showMessageDialog(null, "NO SE ACTUALIZARON LOS DATOS");
-        }
-        
-    }
+    
     
 }

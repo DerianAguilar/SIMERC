@@ -81,6 +81,8 @@ public class ControladorRegContacto implements ActionListener{
     
     public void limpiar() {
         vRegCot.jtDescripcion.setText(null);
+        vRegCot.cmbMedio.setSelectedIndex(0);
+        vRegCot.jtChooser.setCalendar(null);
     }
     
     public void mostrar() {
