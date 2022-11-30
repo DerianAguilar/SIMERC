@@ -2,11 +2,16 @@
 package com.mycompany.simercapp2.Controlador;
 
 
+import com.google.protobuf.Internal;
+import com.mycompany.simercapp2.Dao.AtareaDao;
 import com.mycompany.simercapp2.Dao.RecordatorioDao;
+import com.mycompany.simercapp2.Modelo.AsignarTarea;
 import com.mycompany.simercapp2.Modelo.Nota;
 import com.mycompany.simercapp2.Vista.VistaPrincipal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -15,6 +20,7 @@ public class ControladorVistaPrincipal {
     private VistaPrincipal vPrincipal;
     private String id;
     private RecordatorioDao rDao;
+    private AtareaDao atareaDao;
     
     
     
@@ -23,6 +29,7 @@ public class ControladorVistaPrincipal {
     public ControladorVistaPrincipal() {
         this.vPrincipal = new VistaPrincipal();
         this.rDao= new RecordatorioDao();
+        this.atareaDao= new AtareaDao();
        vPrincipal.btnA.setVisible(false);
        vPrincipal.setVisible(false);
         
@@ -37,6 +44,8 @@ public class ControladorVistaPrincipal {
         vPrincipal.setVisible(true);
         vPrincipal.txtIdU.setText(idU);
         recordatorio();
+        valAdmin();
+        tareas();
         
     }
 
@@ -66,6 +75,44 @@ public class ControladorVistaPrincipal {
         }
     }
     
+    public void valAdmin(){
+        int id= Integer.parseInt(vPrincipal.txtIdU.getText());
+        
+        if(rDao.valAdmin(id)){
+            vPrincipal.btnAtarea.setVisible(true);
+            vPrincipal.pAtarea.setVisible(true);
+            vPrincipal.btnTarea.setVisible(false);
+            vPrincipal.pTarea.setVisible(false);
+        }else{
+            vPrincipal.btnAtarea.setVisible(false);
+            vPrincipal.pAtarea.setVisible(false);
+            vPrincipal.btnTarea.setVisible(true);
+            vPrincipal.pAtarea.setVisible(true);
+        }
+    }
+    
+    public void tareas(){
+        int id= Integer.parseInt(vPrincipal.txtIdU.getText());
+        LocalDate fecha= LocalDate.now();
+        String fech = String.valueOf(fecha);
+        
+        
+        List<AsignarTarea> lista= atareaDao.mostrarTarea(id, fech);
+        int nT= lista.size();
+        
+        if(nT != 0){
+            vPrincipal.pMsj.setVisible(true);
+            vPrincipal.msjTarea.setVisible(true);
+            vPrincipal.msjTarea.setText("TAREAS PENDIENTE: "+nT);
+            
+        }else{
+            vPrincipal.pMsj.setVisible(false);
+            vPrincipal.msjTarea.setVisible(false);
+            vPrincipal.msjTarea.setText("");
+        }
+        
+        
+    }
     
     
 }

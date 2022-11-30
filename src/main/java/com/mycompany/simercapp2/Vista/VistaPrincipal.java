@@ -5,14 +5,17 @@
  */
 package com.mycompany.simercapp2.Vista;
 
+import com.mycompany.simercapp2.Controlador.ControladorVistaAtarea;
 import com.mycompany.simercapp2.Controlador.ControladorVistaEnCorreo;
 import com.mycompany.simercapp2.Controlador.ControladorVistaLogin;
 import com.mycompany.simercapp2.Controlador.ControladorVistaNcontacto;
 import com.mycompany.simercapp2.Controlador.ControladorVistaNota;
 import com.mycompany.simercapp2.Controlador.ControladorVistaPrincipal;
 import com.mycompany.simercapp2.Controlador.ControladorVistaSeguimiento;
+import com.mycompany.simercapp2.Controlador.ControladorVistaTareas;
 import com.mycompany.simercapp2.Dao.RecordatorioDao;
 import com.mycompany.simercapp2.Modelo.Nota;
+import java.awt.Color;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -50,15 +53,21 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        pnContact = new javax.swing.JPanel();
         btnNcontacto = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
+        pSeguimiento = new javax.swing.JPanel();
         btnSeguimiento = new javax.swing.JLabel();
         txtIdU = new javax.swing.JTextField();
         pEnCorreo = new javax.swing.JPanel();
         btnCorreo = new javax.swing.JLabel();
         pNota = new javax.swing.JPanel();
         btnNota = new javax.swing.JLabel();
+        pAtarea = new javax.swing.JPanel();
+        pTarea = new javax.swing.JPanel();
+        btnTarea = new javax.swing.JLabel();
+        btnAtarea = new javax.swing.JLabel();
+        pMsj = new javax.swing.JPanel();
+        msjTarea = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -77,6 +86,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ryzen\\simercApp2\\src\\main\\java\\com\\mycompany\\simercapp2\\Imagen\\salir.png")); // NOI18N
+        jLabel3.setToolTipText("Cerrar Sesion");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -94,14 +104,18 @@ public class VistaPrincipal extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 180));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Baskerville Old Face", 1, 80)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 80)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("BIENVENIDO");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 654, 182));
 
-        jPanel4.setBackground(new java.awt.Color(153, 0, 0));
+        pnContact.setBackground(new java.awt.Color(153, 0, 0));
 
-        btnNcontacto.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btnNcontacto.setBackground(new java.awt.Color(153, 0, 0));
+        btnNcontacto.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 15)); // NOI18N
         btnNcontacto.setForeground(new java.awt.Color(255, 255, 255));
         btnNcontacto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnNcontacto.setText("NUEVO CONTACTO");
@@ -110,22 +124,32 @@ public class VistaPrincipal extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnNcontactoMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnNcontactoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnNcontactoMouseExited(evt);
+            }
         });
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnNcontacto, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+        javax.swing.GroupLayout pnContactLayout = new javax.swing.GroupLayout(pnContact);
+        pnContact.setLayout(pnContactLayout);
+        pnContactLayout.setHorizontalGroup(
+            pnContactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnNcontacto, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnNcontacto, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+        pnContactLayout.setVerticalGroup(
+            pnContactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnContactLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnNcontacto, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel5.setBackground(new java.awt.Color(153, 0, 0));
+        jPanel2.add(pnContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, -1, -1));
 
-        btnSeguimiento.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        pSeguimiento.setBackground(new java.awt.Color(153, 0, 0));
+
+        btnSeguimiento.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 15)); // NOI18N
         btnSeguimiento.setForeground(new java.awt.Color(255, 255, 255));
         btnSeguimiento.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnSeguimiento.setText("SEGUIMIENTO");
@@ -134,18 +158,30 @@ public class VistaPrincipal extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSeguimientoMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSeguimientoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSeguimientoMouseExited(evt);
+            }
         });
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnSeguimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+        javax.swing.GroupLayout pSeguimientoLayout = new javax.swing.GroupLayout(pSeguimiento);
+        pSeguimiento.setLayout(pSeguimientoLayout);
+        pSeguimientoLayout.setHorizontalGroup(
+            pSeguimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pSeguimientoLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnSeguimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnSeguimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        pSeguimientoLayout.setVerticalGroup(
+            pSeguimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pSeguimientoLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnSeguimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        jPanel2.add(pSeguimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, -1, 43));
 
         txtIdU.setBackground(new java.awt.Color(255, 255, 255));
         txtIdU.setForeground(new java.awt.Color(255, 255, 255));
@@ -156,10 +192,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
                 txtIdUActionPerformed(evt);
             }
         });
+        jPanel2.add(txtIdU, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pEnCorreo.setBackground(new java.awt.Color(153, 0, 0));
 
-        btnCorreo.setFont(new java.awt.Font("Baskerville Old Face", 1, 18)); // NOI18N
+        btnCorreo.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 15)); // NOI18N
         btnCorreo.setForeground(new java.awt.Color(255, 255, 255));
         btnCorreo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnCorreo.setText("CORREO");
@@ -168,22 +205,34 @@ public class VistaPrincipal extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCorreoMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCorreoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCorreoMouseExited(evt);
+            }
         });
 
         javax.swing.GroupLayout pEnCorreoLayout = new javax.swing.GroupLayout(pEnCorreo);
         pEnCorreo.setLayout(pEnCorreoLayout);
         pEnCorreoLayout.setHorizontalGroup(
             pEnCorreoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pEnCorreoLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pEnCorreoLayout.setVerticalGroup(
             pEnCorreoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pEnCorreoLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        jPanel2.add(pEnCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 370, -1, -1));
 
         pNota.setBackground(new java.awt.Color(153, 0, 0));
 
-        btnNota.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnNota.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 15)); // NOI18N
         btnNota.setForeground(new java.awt.Color(255, 255, 255));
         btnNota.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnNota.setText("NOTA");
@@ -192,57 +241,99 @@ public class VistaPrincipal extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnNotaMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnNotaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnNotaMouseExited(evt);
+            }
         });
 
         javax.swing.GroupLayout pNotaLayout = new javax.swing.GroupLayout(pNota);
         pNota.setLayout(pNotaLayout);
         pNotaLayout.setHorizontalGroup(
             pNotaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnNota, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pNotaLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnNota, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pNotaLayout.setVerticalGroup(
             pNotaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnNota, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pNotaLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnNota, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 654, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(245, 245, 245))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(pEnCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(pNota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(txtIdU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+        jPanel2.add(pNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 370, -1, 43));
+
+        pAtarea.setBackground(new java.awt.Color(153, 0, 0));
+        pAtarea.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pTarea.setBackground(new java.awt.Color(153, 0, 0));
+        pTarea.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnTarea.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 14)); // NOI18N
+        btnTarea.setForeground(new java.awt.Color(255, 255, 255));
+        btnTarea.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnTarea.setText("TAREAS");
+        btnTarea.setToolTipText("");
+        btnTarea.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnTarea.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnTareaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnTareaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnTareaMouseExited(evt);
+            }
+        });
+        pTarea.add(btnTarea, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 40));
+
+        pAtarea.add(pTarea, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 40));
+
+        btnAtarea.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 15)); // NOI18N
+        btnAtarea.setForeground(new java.awt.Color(255, 255, 255));
+        btnAtarea.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnAtarea.setText("ASIG. TAREA");
+        btnAtarea.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAtarea.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAtareaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAtareaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAtareaMouseExited(evt);
+            }
+        });
+        pAtarea.add(btnAtarea, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 40));
+
+        jPanel2.add(pAtarea, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 370, 140, 40));
+
+        pMsj.setBackground(new java.awt.Color(204, 204, 0));
+        pMsj.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        msjTarea.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        msjTarea.setForeground(new java.awt.Color(0, 0, 0));
+        msjTarea.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout pMsjLayout = new javax.swing.GroupLayout(pMsj);
+        pMsj.setLayout(pMsjLayout);
+        pMsjLayout.setHorizontalGroup(
+            pMsjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(msjTarea, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addComponent(txtIdU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pEnCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pNota, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(191, 191, 191))
+        pMsjLayout.setVerticalGroup(
+            pMsjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pMsjLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(msjTarea, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        jPanel2.add(pMsj, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 10, 360, 40));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 1120, 600));
 
@@ -260,11 +351,13 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addComponent(jLabel4)
         );
 
         jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 370, 50));
@@ -275,6 +368,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jPanel3.add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 101, 370, 43));
 
         btnA.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ryzen\\Documents\\NetBeansProjects\\SIMERC-pruebas\\SIMERC-pruebas\\src\\main\\java\\com\\mycompany\\simercapp2\\Imagen\\flechaAtras.png")); // NOI18N
+        btnA.setToolTipText("Atras");
         btnA.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnA.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -284,6 +378,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jPanel3.add(btnA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 30, 40));
 
         btnS.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ryzen\\Documents\\NetBeansProjects\\SIMERC-pruebas\\SIMERC-pruebas\\src\\main\\java\\com\\mycompany\\simercapp2\\Imagen\\fechaSig.png")); // NOI18N
+        btnS.setToolTipText("Siguiente");
         btnS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -414,6 +509,71 @@ public class VistaPrincipal extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnNotaMouseClicked
 
+    private void btnNcontactoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNcontactoMouseEntered
+        pnContact.setBackground(Color.red);
+        
+    }//GEN-LAST:event_btnNcontactoMouseEntered
+
+    private void btnSeguimientoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSeguimientoMouseEntered
+        pSeguimiento.setBackground(Color.red);
+    }//GEN-LAST:event_btnSeguimientoMouseEntered
+
+    private void btnCorreoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCorreoMouseEntered
+        pEnCorreo.setBackground(Color.red);
+    }//GEN-LAST:event_btnCorreoMouseEntered
+
+    private void btnNotaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNotaMouseEntered
+        pNota.setBackground(Color.red);
+    }//GEN-LAST:event_btnNotaMouseEntered
+
+    private void btnAtareaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtareaMouseEntered
+        pAtarea.setBackground(Color.red);
+    }//GEN-LAST:event_btnAtareaMouseEntered
+
+    private void btnNcontactoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNcontactoMouseExited
+        pnContact.setBackground(new Color (153,0,0));
+    }//GEN-LAST:event_btnNcontactoMouseExited
+
+    private void btnSeguimientoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSeguimientoMouseExited
+        pSeguimiento.setBackground(new Color (153,0,0));
+    }//GEN-LAST:event_btnSeguimientoMouseExited
+
+    private void btnCorreoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCorreoMouseExited
+        pEnCorreo.setBackground(new Color (153,0,0));
+    }//GEN-LAST:event_btnCorreoMouseExited
+
+    private void btnNotaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNotaMouseExited
+        pNota.setBackground(new Color (153,0,0));
+    }//GEN-LAST:event_btnNotaMouseExited
+
+    private void btnAtareaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtareaMouseExited
+        pAtarea.setBackground(new Color (153,0,0));
+    }//GEN-LAST:event_btnAtareaMouseExited
+
+    private void btnAtareaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtareaMouseClicked
+        String id = txtIdU.getText();
+        ControladorVistaAtarea ctrAtarea = new ControladorVistaAtarea();
+        ctrAtarea.iniciar(id);
+        this.dispose();
+    }//GEN-LAST:event_btnAtareaMouseClicked
+
+    private void btnTareaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTareaMouseEntered
+        pTarea.setBackground(Color.red);
+    }//GEN-LAST:event_btnTareaMouseEntered
+
+    private void btnTareaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTareaMouseExited
+        pTarea.setBackground(new Color (153,0,0));
+    }//GEN-LAST:event_btnTareaMouseExited
+
+    private void btnTareaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTareaMouseClicked
+        String id= txtIdU.getText();
+        
+        
+        ControladorVistaTareas ctrTareas = new ControladorVistaTareas();
+        ctrTareas.iniciar(id);
+        this.dispose();
+    }//GEN-LAST:event_btnTareaMouseClicked
+
     
     /**
      * @param args the command line arguments
@@ -452,11 +612,13 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel btnA;
+    public javax.swing.JLabel btnAtarea;
     private javax.swing.JLabel btnCorreo;
     public javax.swing.JLabel btnNcontacto;
     private javax.swing.JLabel btnNota;
     public javax.swing.JLabel btnS;
     public javax.swing.JLabel btnSeguimiento;
+    public javax.swing.JLabel btnTarea;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -464,12 +626,16 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JLabel msjTarea;
+    public javax.swing.JPanel pAtarea;
     private javax.swing.JPanel pEnCorreo;
+    public javax.swing.JPanel pMsj;
     private javax.swing.JPanel pNota;
+    private javax.swing.JPanel pSeguimiento;
+    public javax.swing.JPanel pTarea;
+    private javax.swing.JPanel pnContact;
     public javax.swing.JTextArea txtDesc;
     public javax.swing.JTextField txtIdU;
     public javax.swing.JLabel txtTitulo;

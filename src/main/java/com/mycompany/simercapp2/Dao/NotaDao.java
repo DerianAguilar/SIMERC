@@ -31,6 +31,12 @@ public class NotaDao extends conexion{
         } catch (SQLException ex) {
             Logger.getLogger(NotaDao.class.getName()).log(Level.SEVERE, null, ex);
             return false;
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(NotaDao.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         
         

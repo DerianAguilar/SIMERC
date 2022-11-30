@@ -107,10 +107,13 @@ public class VistaRegSeguimiento extends javax.swing.JFrame {
         jLabel5.setText("FECHA:");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 454, 112, -1));
 
+        cmbMedio.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cmbMedio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "LLAMADA", "CORREO", "PRESENCIAL", " " }));
         jPanel2.add(cmbMedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 165, 152, -1));
 
         jtDescripcion.setColumns(20);
+        jtDescripcion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jtDescripcion.setForeground(new java.awt.Color(0, 0, 0));
         jtDescripcion.setRows(5);
         jScrollPane1.setViewportView(jtDescripcion);
 
@@ -140,6 +143,8 @@ public class VistaRegSeguimiento extends javax.swing.JFrame {
         jtId.setEnabled(false);
         jtId.setOpaque(false);
         jPanel2.add(jtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(1042, 168, 94, -1));
+
+        jtChooser.setForeground(new java.awt.Color(0, 0, 0));
         jPanel2.add(jtChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 444, 155, -1));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));

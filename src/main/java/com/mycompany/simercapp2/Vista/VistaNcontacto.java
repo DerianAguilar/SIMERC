@@ -142,8 +142,26 @@ public class VistaNcontacto extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("MODALIDAD:");
 
+        cmbTipoDocumento.setForeground(new java.awt.Color(0, 0, 0));
         cmbTipoDocumento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "C.C", "T.I" }));
 
+        jtDocumento.setForeground(new java.awt.Color(0, 0, 0));
+
+        jtNombre.setForeground(new java.awt.Color(0, 0, 0));
+
+        jtApellido.setForeground(new java.awt.Color(0, 0, 0));
+
+        jtTelefono.setForeground(new java.awt.Color(0, 0, 0));
+
+        jtCorreo.setForeground(new java.awt.Color(0, 0, 0));
+
+        jtColegio.setForeground(new java.awt.Color(0, 0, 0));
+
+        jtDireccion.setForeground(new java.awt.Color(0, 0, 0));
+
+        jtNacionalidad.setForeground(new java.awt.Color(0, 0, 0));
+
+        cmbModalidad.setForeground(new java.awt.Color(0, 0, 0));
         cmbModalidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Virtual", "Presencial" }));
 
         btnCancelar.setBackground(new java.awt.Color(204, 0, 0));
@@ -177,6 +195,7 @@ public class VistaNcontacto extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("PROGRAMA:");
 
+        cmbPrograma.setForeground(new java.awt.Color(0, 0, 0));
         cmbPrograma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DISEÑO GRAFICO", "DISEÑO DE MODAS", "ADMINISTRACION FINANCIERA", "COMERCIO INTERNACIONAL", "INGENIERIA DE SOFTWARE", "LOGISTICA EMPRESARIAL", "HOTELERIA Y TURISMO" }));
         cmbPrograma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,6 +208,7 @@ public class VistaNcontacto extends javax.swing.JFrame {
         jLabel14.setText("OBSERVACIONES:");
 
         jtObservaciones.setColumns(20);
+        jtObservaciones.setForeground(new java.awt.Color(0, 0, 0));
         jtObservaciones.setRows(5);
         jScrollPane1.setViewportView(jtObservaciones);
 
