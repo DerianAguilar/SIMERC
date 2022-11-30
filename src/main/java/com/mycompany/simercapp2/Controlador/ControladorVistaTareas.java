@@ -8,12 +8,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 
 public class ControladorVistaTareas implements ActionListener{
 
     private VistaTarea vt;
     private AtareaDao atareaDao;
+    private AsignarTarea ast;
     
     
     private String idU;
@@ -21,6 +23,7 @@ public class ControladorVistaTareas implements ActionListener{
     public ControladorVistaTareas() {
         this.vt= new VistaTarea();
         this.atareaDao= new AtareaDao();
+        this.ast= new AsignarTarea();
         
         this.vt.btnRealizada.addActionListener(this);
     }
@@ -39,7 +42,9 @@ public class ControladorVistaTareas implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+        if(e.getSource()==vt.btnRealizada){
+            realizada();
+        }
     }
     
     public void mostrar(){
@@ -72,5 +77,24 @@ public class ControladorVistaTareas implements ActionListener{
         }
         
         
+    }
+    
+    public void realizada(){
+        int id = Integer.parseInt(vt.txtIdTarea.getText());
+        int idU = Integer.parseInt(vt.txtIdU.getText());
+        String idus=String.valueOf(idU);
+        ast.setId(id);
+        ast.setAsesorR(idU);
+        ast.setEstado(1);
+        
+        if(atareaDao.guardarEstado(ast)){
+            JOptionPane.showMessageDialog(null, "TAREA REALIZADA");
+           ControladorVistaTareas ctrTareas = new ControladorVistaTareas();
+           ctrTareas.iniciar(idus);
+           vt.dispose();
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "NO SE GUARDO");
+        }
     }
 }

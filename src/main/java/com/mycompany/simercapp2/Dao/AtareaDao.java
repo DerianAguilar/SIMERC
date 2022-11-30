@@ -119,5 +119,38 @@ public class AtareaDao extends conexion {
         }
         return  datos;
     }
-
+    
+    public boolean guardarEstado(AsignarTarea ast){
+     
+        Connection con = getConection();
+        PreparedStatement ps = null;
+        
+        String sql= "UPDATE asig_tarea SET estado=? WHERE id=? AND id_asesorR=?";
+        
+        try {
+            ps = con.prepareStatement(sql);
+            
+            ps.setInt(1, ast.getEstado());
+            ps.setInt(2, ast.getId());
+            ps.setInt(3, ast.getAsesorR());
+            ps.executeUpdate();
+            
+            
+            return true;
+           
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(AtareaDao.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(AtareaDao.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        
+        
+    }
 }

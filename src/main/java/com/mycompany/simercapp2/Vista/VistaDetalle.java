@@ -384,19 +384,7 @@ public class VistaDetalle extends javax.swing.JFrame {
 
     private void cActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cActualizarActionPerformed
         if(cActualizar.isSelected()){
-            /*txtTd.enable(true);
-            txtDocument.enable(true);
-            txtNombre.enable(true);
-            txtApellido.enable(true);
-            txtNacionalidad.enable(true);
-            txtCorreo.enable(true);
-            txtTelefono.enable(true);
-            txtColegio.enable(true);
-            txtDireccion.enable(true);
-            txtPrograma.enable(true);
-            txtModalidad.enable(true);
-            txtObservaciones.enable(true);
-            txtAsesor.enable(true);*/
+            
             btnGuardar.setVisible(true);
         }
         if(!cActualizar.isSelected()){
