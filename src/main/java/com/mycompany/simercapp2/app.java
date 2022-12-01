@@ -5,13 +5,6 @@ import com.mycompany.simercapp2.Controlador.ControladorVistaLogin;
 
 
 
-
-
-
-
-
-
-
 public class app {
     public static void main(String[] args) {
         

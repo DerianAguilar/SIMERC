@@ -5,6 +5,7 @@
  */
 package com.mycompany.simercapp2.Vista;
 
+import com.mycompany.simercapp2.Controlador.ControladorPerfil;
 import com.mycompany.simercapp2.Controlador.ControladorVistaAtarea;
 import com.mycompany.simercapp2.Controlador.ControladorVistaEnCorreo;
 import com.mycompany.simercapp2.Controlador.ControladorVistaLogin;
@@ -14,6 +15,8 @@ import com.mycompany.simercapp2.Controlador.ControladorVistaPrincipal;
 import com.mycompany.simercapp2.Controlador.ControladorVistaSeguimiento;
 import com.mycompany.simercapp2.Controlador.ControladorVistaTareas;
 import com.mycompany.simercapp2.Dao.RecordatorioDao;
+import com.mycompany.simercapp2.Dao.perfilDao;
+import com.mycompany.simercapp2.Modelo.Asesor;
 import com.mycompany.simercapp2.Modelo.Nota;
 import java.awt.Color;
 import java.time.LocalDate;
@@ -32,6 +35,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
      * Creates new form VistaPrincipal
      */
     private int posL=0;
+    private boolean perfil = false;
     public VistaPrincipal() {
         initComponents();
         txtDesc.setLineWrap(true);
@@ -49,9 +53,20 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        btnPerfil = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        pCambar = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        txtNcon = new javax.swing.JTextField();
+        txtAcon = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        btnCambiar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         pnContact = new javax.swing.JPanel();
         btnNcontacto = new javax.swing.JLabel();
@@ -69,6 +84,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         pMsj = new javax.swing.JPanel();
         msjTarea = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        pPerfil = new javax.swing.JPanel();
+        lbNombre = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        btnConfi = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
         jPanel6 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         txtTitulo = new javax.swing.JLabel();
@@ -84,6 +104,17 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnPerfil.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        btnPerfil.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnPerfil.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ryzen\\Documents\\NetBeansProjects\\SIMERC-pruebas\\SIMERC-pruebas\\src\\main\\java\\com\\mycompany\\simercapp2\\Imagen\\perfil.png")); // NOI18N
+        btnPerfil.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPerfil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnPerfilMouseClicked(evt);
+            }
+        });
+        jPanel1.add(btnPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(1460, 100, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ryzen\\simercApp2\\src\\main\\java\\com\\mycompany\\simercapp2\\Imagen\\salir.png")); // NOI18N
         jLabel3.setToolTipText("Cerrar Sesion");
@@ -105,6 +136,82 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pCambar.setBackground(new java.awt.Color(204, 0, 0));
+        pCambar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("X");
+        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        pCambar.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, -1, 30));
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel12.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("CAMBIAR COTRASEÑA");
+        jPanel5.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 11, 200, 30));
+
+        txtNcon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNconActionPerformed(evt);
+            }
+        });
+        jPanel5.add(txtNcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 200, -1));
+
+        txtAcon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAconActionPerformed(evt);
+            }
+        });
+        jPanel5.add(txtAcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 200, -1));
+
+        jLabel13.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setText("NUEVA CONTRASEÑA");
+        jPanel5.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 140, -1));
+
+        jLabel14.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setText("CONTRASEÑA ANTERIOR");
+        jPanel5.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 180, -1));
+
+        btnCambiar.setBackground(new java.awt.Color(204, 0, 0));
+        btnCambiar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnCambiar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCambiar.setText("CAMBIAR");
+        btnCambiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCambiarActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 242, -1, 20));
+
+        pCambar.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 300, 298));
+
+        jPanel2.add(pCambar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, 330, 320));
 
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 80)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -340,6 +447,31 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 153));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        pPerfil.setBackground(new java.awt.Color(204, 0, 0));
+        pPerfil.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        pPerfil.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lbNombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lbNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pPerfil.add(lbNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 160, 20));
+        pPerfil.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 140, 10));
+
+        btnConfi.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnConfi.setForeground(new java.awt.Color(255, 255, 255));
+        btnConfi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnConfi.setText("CAMBIAR C0NTRASEÑA");
+        btnConfi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnConfi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnConfiMouseClicked(evt);
+            }
+        });
+        pPerfil.add(btnConfi, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 160, 20));
+        pPerfil.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 140, 10));
+
+        jPanel3.add(pPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, -1, 130));
+
         jPanel6.setBackground(new java.awt.Color(204, 0, 0));
 
         jLabel4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
@@ -574,6 +706,60 @@ public class VistaPrincipal extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnTareaMouseClicked
 
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        pCambar.setVisible(false);
+    }//GEN-LAST:event_jLabel11MouseClicked
+
+    private void txtNconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNconActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNconActionPerformed
+
+    private void txtAconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAconActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAconActionPerformed
+
+    private void btnCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarActionPerformed
+        int id = Integer.parseInt(txtIdU.getText());
+       String pas= txtAcon.getText();
+       String cont= txtNcon.getText();
+       Asesor as= new Asesor();
+       perfilDao pDao= new perfilDao();
+       
+        System.out.println(id);
+        
+        
+                
+        as.setPassword(pas);
+        as.setContraseña(cont);
+        
+        System.out.println(cont+" "+pas);
+        if(pDao.cambiarCon(as, id)){
+            JOptionPane.showMessageDialog(null, "SE ACTUALIZO LA CONRASEÑA");
+        }else{
+            JOptionPane.showMessageDialog(null, "SE ACTUALIZO LA CONRASEÑA");
+        }
+        txtAcon.setText("");
+        txtNcon.setText("");
+    }//GEN-LAST:event_btnCambiarActionPerformed
+
+    private void btnConfiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfiMouseClicked
+        pCambar.setVisible(true);
+    }//GEN-LAST:event_btnConfiMouseClicked
+
+    private void btnPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPerfilMouseClicked
+        int id= Integer.parseInt(txtIdU.getText());
+        if(perfil==false){
+            ControladorPerfil ctrPerfil = new ControladorPerfil();
+            String n = ctrPerfil.perfil(id);
+            lbNombre.setText(n);
+            pPerfil.setVisible(true);
+            perfil=true;
+        }else{
+            pPerfil.setVisible(false);
+            perfil=false;
+        }
+    }//GEN-LAST:event_btnPerfilMouseClicked
+
     
     /**
      * @param args the command line arguments
@@ -613,31 +799,47 @@ public class VistaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel btnA;
     public javax.swing.JLabel btnAtarea;
+    public javax.swing.JButton btnCambiar;
+    public javax.swing.JLabel btnConfi;
     private javax.swing.JLabel btnCorreo;
     public javax.swing.JLabel btnNcontacto;
     private javax.swing.JLabel btnNota;
+    public javax.swing.JLabel btnPerfil;
     public javax.swing.JLabel btnS;
     public javax.swing.JLabel btnSeguimiento;
     public javax.swing.JLabel btnTarea;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    public javax.swing.JLabel lbNombre;
     public javax.swing.JLabel msjTarea;
     public javax.swing.JPanel pAtarea;
+    public javax.swing.JPanel pCambar;
     private javax.swing.JPanel pEnCorreo;
     public javax.swing.JPanel pMsj;
     private javax.swing.JPanel pNota;
+    public javax.swing.JPanel pPerfil;
     private javax.swing.JPanel pSeguimiento;
     public javax.swing.JPanel pTarea;
     private javax.swing.JPanel pnContact;
+    public javax.swing.JTextField txtAcon;
     public javax.swing.JTextArea txtDesc;
     public javax.swing.JTextField txtIdU;
+    public javax.swing.JTextField txtNcon;
     public javax.swing.JLabel txtTitulo;
     // End of variables declaration//GEN-END:variables
 }

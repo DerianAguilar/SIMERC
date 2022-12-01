@@ -43,6 +43,8 @@ public class ControladorVistaPrincipal {
         vPrincipal.setLocationRelativeTo(null);
         vPrincipal.setVisible(true);
         vPrincipal.txtIdU.setText(idU);
+        vPrincipal.pCambar.setVisible(false);
+        vPrincipal.pPerfil.setVisible(false);
         recordatorio();
         valAdmin();
         tareas();

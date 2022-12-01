@@ -72,6 +72,7 @@ public class vistaLogin extends javax.swing.JFrame {
         pSalir = new javax.swing.JPanel();
         btnSalir = new javax.swing.JLabel();
         txtConIn = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -457,6 +458,9 @@ public class vistaLogin extends javax.swing.JFrame {
 
         getContentPane().add(ventanaInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, -1));
 
+        jLabel14.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ryzen\\Documents\\NetBeansProjects\\SIMERC-pruebas\\SIMERC-pruebas\\src\\main\\java\\com\\mycompany\\simercapp2\\Imagen\\Loginpanel.png")); // NOI18N
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, 470, 650));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -604,6 +608,7 @@ public class vistaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
